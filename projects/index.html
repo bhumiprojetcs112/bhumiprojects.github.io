@@ -1,0 +1,2335 @@
+<!doctype html>
+<!-- saved from url=(0038)https://lokanataaestetika.com/projects -->
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      :root {
+        --toastify-color-light: #fff;
+        --toastify-color-dark: #121212;
+        --toastify-color-info: #3498db;
+        --toastify-color-success: #07bc0c;
+        --toastify-color-warning: #f1c40f;
+        --toastify-color-error: hsl(6, 78%, 57%);
+        --toastify-color-transparent: rgba(255, 255, 255, 0.7);
+        --toastify-icon-color-info: var(--toastify-color-info);
+        --toastify-icon-color-success: var(--toastify-color-success);
+        --toastify-icon-color-warning: var(--toastify-color-warning);
+        --toastify-icon-color-error: var(--toastify-color-error);
+        --toastify-container-width: fit-content;
+        --toastify-toast-width: 320px;
+        --toastify-toast-offset: 16px;
+        --toastify-toast-top: max(
+          var(--toastify-toast-offset),
+          env(safe-area-inset-top)
+        );
+        --toastify-toast-right: max(
+          var(--toastify-toast-offset),
+          env(safe-area-inset-right)
+        );
+        --toastify-toast-left: max(
+          var(--toastify-toast-offset),
+          env(safe-area-inset-left)
+        );
+        --toastify-toast-bottom: max(
+          var(--toastify-toast-offset),
+          env(safe-area-inset-bottom)
+        );
+        --toastify-toast-background: #fff;
+        --toastify-toast-padding: 14px;
+        --toastify-toast-min-height: 64px;
+        --toastify-toast-max-height: 800px;
+        --toastify-toast-bd-radius: 6px;
+        --toastify-toast-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        --toastify-font-family: sans-serif;
+        --toastify-z-index: 9999;
+        --toastify-text-color-light: #757575;
+        --toastify-text-color-dark: #fff;
+        --toastify-text-color-info: #fff;
+        --toastify-text-color-success: #fff;
+        --toastify-text-color-warning: #fff;
+        --toastify-text-color-error: #fff;
+        --toastify-spinner-color: #616161;
+        --toastify-spinner-color-empty-area: #e0e0e0;
+        --toastify-color-progress-light: linear-gradient(
+          to right,
+          #4cd964,
+          #5ac8fa,
+          #007aff,
+          #34aadc,
+          #5856d6,
+          #ff2d55
+        );
+        --toastify-color-progress-dark: #bb86fc;
+        --toastify-color-progress-info: var(--toastify-color-info);
+        --toastify-color-progress-success: var(--toastify-color-success);
+        --toastify-color-progress-warning: var(--toastify-color-warning);
+        --toastify-color-progress-error: var(--toastify-color-error);
+        --toastify-color-progress-bgo: 0.2;
+      }
+      .Toastify__toast-container {
+        z-index: var(--toastify-z-index);
+        -webkit-transform: translate3d(0, 0, var(--toastify-z-index));
+        position: fixed;
+        width: var(--toastify-container-width);
+        box-sizing: border-box;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+      }
+      .Toastify__toast-container--top-left {
+        top: var(--toastify-toast-top);
+        left: var(--toastify-toast-left);
+      }
+      .Toastify__toast-container--top-center {
+        top: var(--toastify-toast-top);
+        left: 50%;
+        transform: translate(-50%);
+        align-items: center;
+      }
+      .Toastify__toast-container--top-right {
+        top: var(--toastify-toast-top);
+        right: var(--toastify-toast-right);
+        align-items: end;
+      }
+      .Toastify__toast-container--bottom-left {
+        bottom: var(--toastify-toast-bottom);
+        left: var(--toastify-toast-left);
+      }
+      .Toastify__toast-container--bottom-center {
+        bottom: var(--toastify-toast-bottom);
+        left: 50%;
+        transform: translate(-50%);
+        align-items: center;
+      }
+      .Toastify__toast-container--bottom-right {
+        bottom: var(--toastify-toast-bottom);
+        right: var(--toastify-toast-right);
+        align-items: end;
+      }
+      .Toastify__toast {
+        --y: 0;
+        position: relative;
+        touch-action: none;
+        width: var(--toastify-toast-width);
+        min-height: var(--toastify-toast-min-height);
+        box-sizing: border-box;
+        margin-bottom: 1rem;
+        padding: var(--toastify-toast-padding);
+        border-radius: var(--toastify-toast-bd-radius);
+        box-shadow: var(--toastify-toast-shadow);
+        max-height: var(--toastify-toast-max-height);
+        font-family: var(--toastify-font-family);
+        z-index: 0;
+        display: flex;
+        flex: 1 auto;
+        align-items: center;
+        word-break: break-word;
+      }
+      @media only screen and (max-width: 480px) {
+        .Toastify__toast-container {
+          width: 100vw;
+          left: env(safe-area-inset-left);
+          margin: 0;
+        }
+        .Toastify__toast-container--top-left,
+        .Toastify__toast-container--top-center,
+        .Toastify__toast-container--top-right {
+          top: env(safe-area-inset-top);
+          transform: translate(0);
+        }
+        .Toastify__toast-container--bottom-left,
+        .Toastify__toast-container--bottom-center,
+        .Toastify__toast-container--bottom-right {
+          bottom: env(safe-area-inset-bottom);
+          transform: translate(0);
+        }
+        .Toastify__toast-container--rtl {
+          right: env(safe-area-inset-right);
+          left: initial;
+        }
+        .Toastify__toast {
+          --toastify-toast-width: 100%;
+          margin-bottom: 0;
+          border-radius: 0;
+        }
+      }
+      .Toastify__toast-container[data-stacked="true"] {
+        width: var(--toastify-toast-width);
+      }
+      .Toastify__toast--stacked {
+        position: absolute;
+        width: 100%;
+        transform: translate3d(0, var(--y), 0) scale(var(--s));
+        transition: transform 0.3s;
+      }
+      .Toastify__toast--stacked[data-collapsed] .Toastify__toast-body,
+      .Toastify__toast--stacked[data-collapsed] .Toastify__close-button {
+        transition: opacity 0.1s;
+      }
+      .Toastify__toast--stacked[data-collapsed="false"] {
+        overflow: visible;
+      }
+      .Toastify__toast--stacked[data-collapsed="true"]:not(:last-child) > * {
+        opacity: 0;
+      }
+      .Toastify__toast--stacked:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: calc(var(--g) * 1px);
+        bottom: 100%;
+      }
+      .Toastify__toast--stacked[data-pos="top"] {
+        top: 0;
+      }
+      .Toastify__toast--stacked[data-pos="bot"] {
+        bottom: 0;
+      }
+      .Toastify__toast--stacked[data-pos="bot"].Toastify__toast--stacked:before {
+        transform-origin: top;
+      }
+      .Toastify__toast--stacked[data-pos="top"].Toastify__toast--stacked:before {
+        transform-origin: bottom;
+      }
+      .Toastify__toast--stacked:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        transform: scaleY(3);
+        z-index: -1;
+      }
+      .Toastify__toast--rtl {
+        direction: rtl;
+      }
+      .Toastify__toast--close-on-click {
+        cursor: pointer;
+      }
+      .Toastify__toast-icon {
+        margin-inline-end: 10px;
+        width: 22px;
+        flex-shrink: 0;
+        display: flex;
+      }
+      .Toastify--animate {
+        animation-fill-mode: both;
+        animation-duration: 0.5s;
+      }
+      .Toastify--animate-icon {
+        animation-fill-mode: both;
+        animation-duration: 0.3s;
+      }
+      .Toastify__toast-theme--dark {
+        background: var(--toastify-color-dark);
+        color: var(--toastify-text-color-dark);
+      }
+      .Toastify__toast-theme--light,
+      .Toastify__toast-theme--colored.Toastify__toast--default {
+        background: var(--toastify-color-light);
+        color: var(--toastify-text-color-light);
+      }
+      .Toastify__toast-theme--colored.Toastify__toast--info {
+        color: var(--toastify-text-color-info);
+        background: var(--toastify-color-info);
+      }
+      .Toastify__toast-theme--colored.Toastify__toast--success {
+        color: var(--toastify-text-color-success);
+        background: var(--toastify-color-success);
+      }
+      .Toastify__toast-theme--colored.Toastify__toast--warning {
+        color: var(--toastify-text-color-warning);
+        background: var(--toastify-color-warning);
+      }
+      .Toastify__toast-theme--colored.Toastify__toast--error {
+        color: var(--toastify-text-color-error);
+        background: var(--toastify-color-error);
+      }
+      .Toastify__progress-bar-theme--light {
+        background: var(--toastify-color-progress-light);
+      }
+      .Toastify__progress-bar-theme--dark {
+        background: var(--toastify-color-progress-dark);
+      }
+      .Toastify__progress-bar--info {
+        background: var(--toastify-color-progress-info);
+      }
+      .Toastify__progress-bar--success {
+        background: var(--toastify-color-progress-success);
+      }
+      .Toastify__progress-bar--warning {
+        background: var(--toastify-color-progress-warning);
+      }
+      .Toastify__progress-bar--error {
+        background: var(--toastify-color-progress-error);
+      }
+      .Toastify__progress-bar-theme--colored.Toastify__progress-bar--info,
+      .Toastify__progress-bar-theme--colored.Toastify__progress-bar--success,
+      .Toastify__progress-bar-theme--colored.Toastify__progress-bar--warning,
+      .Toastify__progress-bar-theme--colored.Toastify__progress-bar--error {
+        background: var(--toastify-color-transparent);
+      }
+      .Toastify__close-button {
+        color: #fff;
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        background: transparent;
+        outline: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: 0.3s ease;
+        z-index: 1;
+      }
+      .Toastify__toast--rtl .Toastify__close-button {
+        left: 6px;
+        right: unset;
+      }
+      .Toastify__close-button--light {
+        color: #000;
+        opacity: 0.3;
+      }
+      .Toastify__close-button > svg {
+        fill: currentColor;
+        height: 16px;
+        width: 14px;
+      }
+      .Toastify__close-button:hover,
+      .Toastify__close-button:focus {
+        opacity: 1;
+      }
+      @keyframes Toastify__trackProgress {
+        0% {
+          transform: scaleX(1);
+        }
+        to {
+          transform: scaleX(0);
+        }
+      }
+      .Toastify__progress-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.7;
+        transform-origin: left;
+      }
+      .Toastify__progress-bar--animated {
+        animation: Toastify__trackProgress linear 1 forwards;
+      }
+      .Toastify__progress-bar--controlled {
+        transition: transform 0.2s;
+      }
+      .Toastify__progress-bar--rtl {
+        right: 0;
+        left: initial;
+        transform-origin: right;
+        border-bottom-left-radius: initial;
+      }
+      .Toastify__progress-bar--wrp {
+        position: absolute;
+        overflow: hidden;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        border-bottom-left-radius: var(--toastify-toast-bd-radius);
+        border-bottom-right-radius: var(--toastify-toast-bd-radius);
+      }
+      .Toastify__progress-bar--wrp[data-hidden="true"] {
+        opacity: 0;
+      }
+      .Toastify__progress-bar--bg {
+        opacity: var(--toastify-color-progress-bgo);
+        width: 100%;
+        height: 100%;
+      }
+      .Toastify__spinner {
+        width: 20px;
+        height: 20px;
+        box-sizing: border-box;
+        border: 2px solid;
+        border-radius: 100%;
+        border-color: var(--toastify-spinner-color-empty-area);
+        border-right-color: var(--toastify-spinner-color);
+        animation: Toastify__spin 0.65s linear infinite;
+      }
+      @keyframes Toastify__bounceInRight {
+        0%,
+        60%,
+        75%,
+        90%,
+        to {
+          animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        0% {
+          opacity: 0;
+          transform: translate3d(3000px, 0, 0);
+        }
+        60% {
+          opacity: 1;
+          transform: translate3d(-25px, 0, 0);
+        }
+        75% {
+          transform: translate3d(10px, 0, 0);
+        }
+        90% {
+          transform: translate3d(-5px, 0, 0);
+        }
+        to {
+          transform: none;
+        }
+      }
+      @keyframes Toastify__bounceOutRight {
+        20% {
+          opacity: 1;
+          transform: translate3d(-20px, var(--y), 0);
+        }
+        to {
+          opacity: 0;
+          transform: translate3d(2000px, var(--y), 0);
+        }
+      }
+      @keyframes Toastify__bounceInLeft {
+        0%,
+        60%,
+        75%,
+        90%,
+        to {
+          animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        0% {
+          opacity: 0;
+          transform: translate3d(-3000px, 0, 0);
+        }
+        60% {
+          opacity: 1;
+          transform: translate3d(25px, 0, 0);
+        }
+        75% {
+          transform: translate3d(-10px, 0, 0);
+        }
+        90% {
+          transform: translate3d(5px, 0, 0);
+        }
+        to {
+          transform: none;
+        }
+      }
+      @keyframes Toastify__bounceOutLeft {
+        20% {
+          opacity: 1;
+          transform: translate3d(20px, var(--y), 0);
+        }
+        to {
+          opacity: 0;
+          transform: translate3d(-2000px, var(--y), 0);
+        }
+      }
+      @keyframes Toastify__bounceInUp {
+        0%,
+        60%,
+        75%,
+        90%,
+        to {
+          animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        0% {
+          opacity: 0;
+          transform: translate3d(0, 3000px, 0);
+        }
+        60% {
+          opacity: 1;
+          transform: translate3d(0, -20px, 0);
+        }
+        75% {
+          transform: translate3d(0, 10px, 0);
+        }
+        90% {
+          transform: translate3d(0, -5px, 0);
+        }
+        to {
+          transform: translateZ(0);
+        }
+      }
+      @keyframes Toastify__bounceOutUp {
+        20% {
+          transform: translate3d(0, calc(var(--y) - 10px), 0);
+        }
+        40%,
+        45% {
+          opacity: 1;
+          transform: translate3d(0, calc(var(--y) + 20px), 0);
+        }
+        to {
+          opacity: 0;
+          transform: translate3d(0, -2000px, 0);
+        }
+      }
+      @keyframes Toastify__bounceInDown {
+        0%,
+        60%,
+        75%,
+        90%,
+        to {
+          animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        0% {
+          opacity: 0;
+          transform: translate3d(0, -3000px, 0);
+        }
+        60% {
+          opacity: 1;
+          transform: translate3d(0, 25px, 0);
+        }
+        75% {
+          transform: translate3d(0, -10px, 0);
+        }
+        90% {
+          transform: translate3d(0, 5px, 0);
+        }
+        to {
+          transform: none;
+        }
+      }
+      @keyframes Toastify__bounceOutDown {
+        20% {
+          transform: translate3d(0, calc(var(--y) - 10px), 0);
+        }
+        40%,
+        45% {
+          opacity: 1;
+          transform: translate3d(0, calc(var(--y) + 20px), 0);
+        }
+        to {
+          opacity: 0;
+          transform: translate3d(0, 2000px, 0);
+        }
+      }
+      .Toastify__bounce-enter--top-left,
+      .Toastify__bounce-enter--bottom-left {
+        animation-name: Toastify__bounceInLeft;
+      }
+      .Toastify__bounce-enter--top-right,
+      .Toastify__bounce-enter--bottom-right {
+        animation-name: Toastify__bounceInRight;
+      }
+      .Toastify__bounce-enter--top-center {
+        animation-name: Toastify__bounceInDown;
+      }
+      .Toastify__bounce-enter--bottom-center {
+        animation-name: Toastify__bounceInUp;
+      }
+      .Toastify__bounce-exit--top-left,
+      .Toastify__bounce-exit--bottom-left {
+        animation-name: Toastify__bounceOutLeft;
+      }
+      .Toastify__bounce-exit--top-right,
+      .Toastify__bounce-exit--bottom-right {
+        animation-name: Toastify__bounceOutRight;
+      }
+      .Toastify__bounce-exit--top-center {
+        animation-name: Toastify__bounceOutUp;
+      }
+      .Toastify__bounce-exit--bottom-center {
+        animation-name: Toastify__bounceOutDown;
+      }
+      @keyframes Toastify__zoomIn {
+        0% {
+          opacity: 0;
+          transform: scale3d(0.3, 0.3, 0.3);
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+      @keyframes Toastify__zoomOut {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+          transform: translate3d(0, var(--y), 0) scale3d(0.3, 0.3, 0.3);
+        }
+        to {
+          opacity: 0;
+        }
+      }
+      .Toastify__zoom-enter {
+        animation-name: Toastify__zoomIn;
+      }
+      .Toastify__zoom-exit {
+        animation-name: Toastify__zoomOut;
+      }
+      @keyframes Toastify__flipIn {
+        0% {
+          transform: perspective(400px) rotateX(90deg);
+          animation-timing-function: ease-in;
+          opacity: 0;
+        }
+        40% {
+          transform: perspective(400px) rotateX(-20deg);
+          animation-timing-function: ease-in;
+        }
+        60% {
+          transform: perspective(400px) rotateX(10deg);
+          opacity: 1;
+        }
+        80% {
+          transform: perspective(400px) rotateX(-5deg);
+        }
+        to {
+          transform: perspective(400px);
+        }
+      }
+      @keyframes Toastify__flipOut {
+        0% {
+          transform: translate3d(0, var(--y), 0) perspective(400px);
+        }
+        30% {
+          transform: translate3d(0, var(--y), 0) perspective(400px)
+            rotateX(-20deg);
+          opacity: 1;
+        }
+        to {
+          transform: translate3d(0, var(--y), 0) perspective(400px)
+            rotateX(90deg);
+          opacity: 0;
+        }
+      }
+      .Toastify__flip-enter {
+        animation-name: Toastify__flipIn;
+      }
+      .Toastify__flip-exit {
+        animation-name: Toastify__flipOut;
+      }
+      @keyframes Toastify__slideInRight {
+        0% {
+          transform: translate3d(110%, 0, 0);
+          visibility: visible;
+        }
+        to {
+          transform: translate3d(0, var(--y), 0);
+        }
+      }
+      @keyframes Toastify__slideInLeft {
+        0% {
+          transform: translate3d(-110%, 0, 0);
+          visibility: visible;
+        }
+        to {
+          transform: translate3d(0, var(--y), 0);
+        }
+      }
+      @keyframes Toastify__slideInUp {
+        0% {
+          transform: translate3d(0, 110%, 0);
+          visibility: visible;
+        }
+        to {
+          transform: translate3d(0, var(--y), 0);
+        }
+      }
+      @keyframes Toastify__slideInDown {
+        0% {
+          transform: translate3d(0, -110%, 0);
+          visibility: visible;
+        }
+        to {
+          transform: translate3d(0, var(--y), 0);
+        }
+      }
+      @keyframes Toastify__slideOutRight {
+        0% {
+          transform: translate3d(0, var(--y), 0);
+        }
+        to {
+          visibility: hidden;
+          transform: translate3d(110%, var(--y), 0);
+        }
+      }
+      @keyframes Toastify__slideOutLeft {
+        0% {
+          transform: translate3d(0, var(--y), 0);
+        }
+        to {
+          visibility: hidden;
+          transform: translate3d(-110%, var(--y), 0);
+        }
+      }
+      @keyframes Toastify__slideOutDown {
+        0% {
+          transform: translate3d(0, var(--y), 0);
+        }
+        to {
+          visibility: hidden;
+          transform: translate3d(0, 500px, 0);
+        }
+      }
+      @keyframes Toastify__slideOutUp {
+        0% {
+          transform: translate3d(0, var(--y), 0);
+        }
+        to {
+          visibility: hidden;
+          transform: translate3d(0, -500px, 0);
+        }
+      }
+      .Toastify__slide-enter--top-left,
+      .Toastify__slide-enter--bottom-left {
+        animation-name: Toastify__slideInLeft;
+      }
+      .Toastify__slide-enter--top-right,
+      .Toastify__slide-enter--bottom-right {
+        animation-name: Toastify__slideInRight;
+      }
+      .Toastify__slide-enter--top-center {
+        animation-name: Toastify__slideInDown;
+      }
+      .Toastify__slide-enter--bottom-center {
+        animation-name: Toastify__slideInUp;
+      }
+      .Toastify__slide-exit--top-left,
+      .Toastify__slide-exit--bottom-left {
+        animation-name: Toastify__slideOutLeft;
+        animation-timing-function: ease-in;
+        animation-duration: 0.3s;
+      }
+      .Toastify__slide-exit--top-right,
+      .Toastify__slide-exit--bottom-right {
+        animation-name: Toastify__slideOutRight;
+        animation-timing-function: ease-in;
+        animation-duration: 0.3s;
+      }
+      .Toastify__slide-exit--top-center {
+        animation-name: Toastify__slideOutUp;
+        animation-timing-function: ease-in;
+        animation-duration: 0.3s;
+      }
+      .Toastify__slide-exit--bottom-center {
+        animation-name: Toastify__slideOutDown;
+        animation-timing-function: ease-in;
+        animation-duration: 0.3s;
+      }
+      @keyframes Toastify__spin {
+        0% {
+          transform: rotate(0);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://lokanataaestetika.com/assets/favicon-32x32-BVgbJYN3.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Loka Nata Aestetika</title>
+
+    <link href="./Projects _ Loka Nata Aestetika_files/css2" rel="stylesheet" />
+
+    <script
+      type="module"
+      crossorigin=""
+      src="./Projects _ Loka Nata Aestetika_files/index-FF8IWWlA.js.download"
+    ></script>
+    <link
+      rel="stylesheet"
+      crossorigin=""
+      href="./Projects _ Loka Nata Aestetika_files/index-CndH7STt.css"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin=""
+      href="https://lokanataaestetika.com/assets/header-Dv_TiIG1.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin=""
+      href="https://lokanataaestetika.com/assets/lna-CMLJJeaF.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin=""
+      href="https://lokanataaestetika.com/assets/index-Dqe8IwSd.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin=""
+      href="https://lokanataaestetika.com/assets/Projects-CCbo4zBB.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin=""
+      href="https://lokanataaestetika.com/assets/ProjectCard-Cf1Fg9Yl.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin=""
+      href="https://lokanataaestetika.com/assets/service-O2kua72B.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin=""
+      href="https://lokanataaestetika.com/assets/constants-Cc0zeayf.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin=""
+      href="https://lokanataaestetika.com/assets/proxy-DArSP5ip.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin=""
+      href="https://lokanataaestetika.com/assets/ShadowLoading-CUZYY2oi.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin=""
+      href="https://lokanataaestetika.com/assets/react-paginate-fpoWtwCE.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin=""
+      href="https://lokanataaestetika.com/assets/footer-Z0fCGTmr.js"
+    />
+    <link
+      rel="canonical"
+      href="https://lokanataaestetika.com/projects"
+      data-rh="true"
+    />
+    <meta
+      name="description"
+      content="Explore our portfolio of architectural projects including residential, commercial, industrial, interior, and landscape designs."
+      data-rh="true"
+    />
+    <meta
+      name="keywords"
+      content="arsitektur, portfolio, proyek, desain rumah, interior, komersial"
+      data-rh="true"
+    />
+    <meta property="og:locale" content="en_US" data-rh="true" />
+    <meta property="og:type" content="website" data-rh="true" />
+    <meta
+      property="og:title"
+      content="Projects | Loka Nata Aestetika"
+      data-rh="true"
+    />
+    <meta
+      property="og:description"
+      content="Explore our portfolio of architectural projects."
+      data-rh="true"
+    />
+    <meta
+      property="og:url"
+      content="https://lokanataaestetika.com/projects"
+      data-rh="true"
+    />
+    <meta
+      property="og:site_name"
+      content="Loka Nata Aestetika"
+      data-rh="true"
+    />
+    <meta
+      property="og:image"
+      content="https://media.lokanataaestetika.com/project-2.png"
+      data-rh="true"
+    />
+    <meta name="twitter:card" content="summary_large_image" data-rh="true" />
+    <meta
+      name="twitter:title"
+      content="Projects | Loka Nata Aestetika"
+      data-rh="true"
+    />
+    <meta
+      name="twitter:description"
+      content="Explore our portfolio of architectural projects."
+      data-rh="true"
+    />
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1304.0" data-gr-ext-installed="">
+    <div id="root">
+      <section
+        class="Toastify"
+        aria-live="polite"
+        aria-atomic="false"
+        aria-relevant="additions text"
+        aria-label="Notifications Alt+T"
+      ></section>
+      <header id="siteHeader" class="fixed top-0 z-20 w-full" style="z-index: 9999">
+        <div
+          class="flex items-center transition-all px-3 xs:px-4 xl:px-20 h-[100px] lg:h-[120px] lg:py-3 py-3 bg-transparent"
+        >
+          <a
+            class="mr-4 lg:mr-12 shrink-0"
+            href="../"
+            data-discover="true"
+            ><img
+              class="w-16 h-16 lg:w-24 lg:h-24"
+              width="40"
+              height="40"
+              alt="BhumiProjects"
+              src="../bhumiprojects - Architecture Studio_files/logo-1.png"
+          /></a>
+          <div
+            class="relative flex w-full items-center justify-end lg:justify-start"
+          >
+            <div class="hidden lg:flex w-full justify-between items-center">
+              <nav
+                class="flex justify-between items-center w-full py-2 lg:py-4 2lg:py-4 px-2 lg:px-6"
+              >
+                <ul class="flex gap-1 lg:gap-3 2lg:gap-4 list-none p-0 m-0">
+                  <li>
+                    <a
+                      href="../"
+                      class="nav-link inline-flex h-10 items-center justify-center px-2 lg:px-3 2lg:px-4 py-2 text-[14px] lg:text-[15px] 2lg:text-[17px] font-bold transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50 cursor-pointer text-white hover:text-[#B8C6BE]"
+                      >Home</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="../about/"
+                      class="nav-link inline-flex h-10 items-center justify-center px-2 lg:px-3 2lg:px-4 py-2 text-[14px] lg:text-[15px] 2lg:text-[17px] font-bold transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50 cursor-pointer text-white hover:text-[#B8C6BE]"
+                      >About</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="../service"
+                      class="nav-link inline-flex h-10 items-center justify-center px-2 lg:px-3 2lg:px-4 py-2 text-[14px] lg:text-[15px] 2lg:text-[17px] font-bold transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50 cursor-pointer text-white hover:text-[#B8C6BE]"
+                      >Service</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./"
+                      class="nav-link inline-flex h-10 items-center justify-center px-2 lg:px-3 2lg:px-4 py-2 text-[14px] lg:text-[15px] 2lg:text-[17px] font-bold transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50 cursor-pointer text-white hover:text-[#B8C6BE]"
+                      >Projects</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="../blogs"
+                      class="nav-link inline-flex h-10 items-center justify-center px-2 lg:px-3 2lg:px-4 py-2 text-[14px] lg:text-[15px] 2lg:text-[17px] font-bold transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50 cursor-pointer text-white hover:text-[#B8C6BE]"
+                      >Blogs</a
+                    >
+                  </li>
+                </ul>
+                <div class="flex items-center gap-1 pr-1 lg:pr-4 2lg:pr-4">
+                  <select
+                    class="px-2 py-1 lg:px-3 2lg:px-3 rounded-md text-xs lg:text-sm cursor-pointer bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                    aria-label="Select language"
+                  >
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="id">🇮🇩 ID</option>
+                  </select>
+                </div>
+              </nav>
+              <div class="hidden lg:flex gap-3 items-center"></div>
+            </div>
+            <div class="flex lg:hidden">
+              <div class="">
+                <button
+                  class="text-black hover:text-[#B8C6BE] &quot; lg:hidden text-gray-800 focus:outline-none cursor-pointer &quot;"
+                >
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    class="h-6 w-6"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div style="opacity: 1; transform: none">
+        <section
+          class="relative w-full h-[40vh] xs:h-[45vh] sm:h-[50vh] md:h-[400px] overflow-hidden"
+        >
+          <div class="absolute inset-0 z-0">
+            <img
+              alt="Projects Background"
+              class="w-full h-full object-cover"
+              src="./Projects _ Loka Nata Aestetika_files/blogs-jumbotron.jpg"
+            />
+          </div>
+          <div
+            class="relative z-10 flex flex-col justify-center items-center h-full px-4 xs:px-6 sm:px-8 md:px-12 lg:px-20 bg-black/50 text-white"
+          >
+            <h1
+              class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 xs:mb-4 animate-fadeInUp text-center"
+            >
+              Proyek Kami
+            </h1>
+            <p
+              class="text-xs xs:text-sm md:text-base lg:text-lg text-center max-w-2xl px-4"
+            >
+              Jelajahi portofolio desain arsitektur kami yang menginspirasi
+            </p>
+          </div>
+        </section>
+      </div>
+      <section
+        class="container mx-auto px-4 xs:px-6 md:px-8 py-8 xs:py-12 md:py-16"
+      >
+        <div
+          class="text-center mb-6 xs:mb-8 md:mb-12"
+          style="opacity: 1; transform: none"
+        >
+          <h2
+            class="text-xl xs:text-2xl md:text-3xl font-bold text-gray-900 mb-2 xs:mb-4"
+          >
+            Portofolio Proyek
+          </h2>
+          <p
+            class="text-xs xs:text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed"
+          >
+            Kami berdedikasi untuk menciptakan ruang yang fungsional, estetis,
+            dan berkelanjutan. Setiap proyek menceritakan kisah unik tentang
+            kolaborasi kami dengan klien.
+          </p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+          <button
+            class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-primary-one text-white shadow-lg"
+          >
+            Semua Proyek</button
+          ><button
+            class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-white text-gray-700 hover:bg-primary-two hover:text-white border border-gray-200"
+          >
+            Perumahan</button
+          ><button
+            class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-white text-gray-700 hover:bg-primary-two hover:text-white border border-gray-200"
+          >
+            Komersial</button
+          ><button
+            class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-white text-gray-700 hover:bg-primary-two hover:text-white border border-gray-200"
+          >
+            Interior</button
+          ><button
+            class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-white text-gray-700 hover:bg-primary-two hover:text-white border border-gray-200"
+          >
+            Booth &amp; Pameran
+          </button>
+        </div>
+        <div class="text-center mb-6 xs:mb-8">
+          <span class="text-xs xs:text-sm md:text-base text-gray-600"
+            >Menampilkan 11 proyek</span
+          >
+        </div>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 md:gap-8"
+        >
+          <div class="group" style="opacity: 1; transform: none">
+            <a
+              class="block"
+              href="https://lokanataaestetika.com/projects/e-house"
+              data-discover="true"
+              ><div
+                class="bg-white rounded-lg xs:rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+              >
+                <div
+                  class="relative h-40 xs:h-48 sm:h-56 md:h-64 overflow-hidden"
+                >
+                  <img
+                    alt="E House"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="./Projects _ Loka Nata Aestetika_files/1781755540414-01FACADE1.jpg"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-2 xs:top-3 md:top-4 left-2 xs:left-3 md:left-4"
+                  >
+                    <span
+                      class="px-2 xs:px-3 py-0.5 xs:py-1 bg-primary text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wide rounded-full"
+                      >residential</span
+                    >
+                  </div>
+                  <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <span
+                      class="px-3 xs:px-4 md:px-6 py-1.5 xs:py-2 md:py-3 bg-white text-primary text-[10px] xs:text-xs md:text-sm font-semibold rounded-full flex items-center gap-1 xs:gap-2"
+                      >View Project
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 448 512"
+                        class="text-[10px] xs:text-xs"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="p-3 xs:p-4 md:p-6">
+                  <h3
+                    class="text-base xs:text-lg md:text-xl font-bold text-gray-900 mb-1 xs:mb-2 group-hover:text-primary transition-colors line-clamp-1"
+                  >
+                    E House
+                  </h3>
+                  <p
+                    class="text-[10px] xs:text-xs md:text-sm text-gray-600 mb-2 xs:mb-3 md:mb-4 line-clamp-2"
+                  ></p>
+                  <div
+                    class="flex flex-wrap items-center gap-2 xs:gap-3 md:gap-4 text-[10px] xs:text-xs md:text-sm text-gray-500"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 384 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                        ></path></svg
+                      >South Jakarta</span
+                    ><span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M160 288h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56v-64h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56V96h-56c-4.42 0-8-3.58-8-8V72c0-4.42 3.58-8 8-8h56V32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v448c0 2.77.91 5.24 1.57 7.8L160 329.38V288zm320 64h-32v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-41.37L24.2 510.43c2.56.66 5.04 1.57 7.8 1.57h448c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div></div
+            ></a>
+          </div>
+          <div class="group" style="opacity: 1; transform: none">
+            <a
+              class="block"
+              href="https://lokanataaestetika.com/projects/landscape-bendungan-cipanas-wika-jakon"
+              data-discover="true"
+              ><div
+                class="bg-white rounded-lg xs:rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+              >
+                <div
+                  class="relative h-40 xs:h-48 sm:h-56 md:h-64 overflow-hidden"
+                >
+                  <img
+                    alt="Landscape Bendungan Cipanas, Wika-Jakon"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="./Projects _ Loka Nata Aestetika_files/1779168933964-cipanas.png"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-2 xs:top-3 md:top-4 left-2 xs:left-3 md:left-4"
+                  >
+                    <span
+                      class="px-2 xs:px-3 py-0.5 xs:py-1 bg-primary text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wide rounded-full"
+                      >commercial</span
+                    >
+                  </div>
+                  <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <span
+                      class="px-3 xs:px-4 md:px-6 py-1.5 xs:py-2 md:py-3 bg-white text-primary text-[10px] xs:text-xs md:text-sm font-semibold rounded-full flex items-center gap-1 xs:gap-2"
+                      >View Project
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 448 512"
+                        class="text-[10px] xs:text-xs"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="p-3 xs:p-4 md:p-6">
+                  <h3
+                    class="text-base xs:text-lg md:text-xl font-bold text-gray-900 mb-1 xs:mb-2 group-hover:text-primary transition-colors line-clamp-1"
+                  >
+                    Landscape Bendungan Cipanas, Wika-Jakon
+                  </h3>
+                  <p
+                    class="text-[10px] xs:text-xs md:text-sm text-gray-600 mb-2 xs:mb-3 md:mb-4 line-clamp-2"
+                  ></p>
+                  <div
+                    class="flex flex-wrap items-center gap-2 xs:gap-3 md:gap-4 text-[10px] xs:text-xs md:text-sm text-gray-500"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 384 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                        ></path></svg
+                      >Cipanas, West Java</span
+                    ><span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M160 288h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56v-64h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56V96h-56c-4.42 0-8-3.58-8-8V72c0-4.42 3.58-8 8-8h56V32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v448c0 2.77.91 5.24 1.57 7.8L160 329.38V288zm320 64h-32v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-41.37L24.2 510.43c2.56.66 5.04 1.57 7.8 1.57h448c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div></div
+            ></a>
+          </div>
+          <div class="group" style="opacity: 1; transform: none">
+            <a
+              class="block"
+              href="https://lokanataaestetika.com/projects/taman-komodo-jagat-satwa-tmii"
+              data-discover="true"
+              ><div
+                class="bg-white rounded-lg xs:rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+              >
+                <div
+                  class="relative h-40 xs:h-48 sm:h-56 md:h-64 overflow-hidden"
+                >
+                  <img
+                    alt="Taman Komodo Jagat Satwa TMII"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="./Projects _ Loka Nata Aestetika_files/1779165666227-TamanKomodoJagatSatwaTMII.png"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-2 xs:top-3 md:top-4 left-2 xs:left-3 md:left-4"
+                  >
+                    <span
+                      class="px-2 xs:px-3 py-0.5 xs:py-1 bg-primary text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wide rounded-full"
+                      >commercial</span
+                    >
+                  </div>
+                  <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <span
+                      class="px-3 xs:px-4 md:px-6 py-1.5 xs:py-2 md:py-3 bg-white text-primary text-[10px] xs:text-xs md:text-sm font-semibold rounded-full flex items-center gap-1 xs:gap-2"
+                      >View Project
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 448 512"
+                        class="text-[10px] xs:text-xs"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="p-3 xs:p-4 md:p-6">
+                  <h3
+                    class="text-base xs:text-lg md:text-xl font-bold text-gray-900 mb-1 xs:mb-2 group-hover:text-primary transition-colors line-clamp-1"
+                  >
+                    Taman Komodo Jagat Satwa TMII
+                  </h3>
+                  <p
+                    class="text-[10px] xs:text-xs md:text-sm text-gray-600 mb-2 xs:mb-3 md:mb-4 line-clamp-2"
+                  ></p>
+                  <div
+                    class="flex flex-wrap items-center gap-2 xs:gap-3 md:gap-4 text-[10px] xs:text-xs md:text-sm text-gray-500"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 384 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                        ></path></svg
+                      >Jakarta, DKI Jakarta</span
+                    ><span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M160 288h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56v-64h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56V96h-56c-4.42 0-8-3.58-8-8V72c0-4.42 3.58-8 8-8h56V32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v448c0 2.77.91 5.24 1.57 7.8L160 329.38V288zm320 64h-32v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-41.37L24.2 510.43c2.56.66 5.04 1.57 7.8 1.57h448c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div></div
+            ></a>
+          </div>
+          <div class="group" style="opacity: 1; transform: none">
+            <a
+              class="block"
+              href="https://lokanataaestetika.com/projects/taman-burung-jagat-satwa-tmii"
+              data-discover="true"
+              ><div
+                class="bg-white rounded-lg xs:rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+              >
+                <div
+                  class="relative h-40 xs:h-48 sm:h-56 md:h-64 overflow-hidden"
+                >
+                  <img
+                    alt="Taman Burung Jagat Satwa TMII"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="./Projects _ Loka Nata Aestetika_files/1779165448550-taman_burung_jagat_satwa_TMII.png"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-2 xs:top-3 md:top-4 left-2 xs:left-3 md:left-4"
+                  >
+                    <span
+                      class="px-2 xs:px-3 py-0.5 xs:py-1 bg-primary text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wide rounded-full"
+                      >commercial</span
+                    >
+                  </div>
+                  <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <span
+                      class="px-3 xs:px-4 md:px-6 py-1.5 xs:py-2 md:py-3 bg-white text-primary text-[10px] xs:text-xs md:text-sm font-semibold rounded-full flex items-center gap-1 xs:gap-2"
+                      >View Project
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 448 512"
+                        class="text-[10px] xs:text-xs"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="p-3 xs:p-4 md:p-6">
+                  <h3
+                    class="text-base xs:text-lg md:text-xl font-bold text-gray-900 mb-1 xs:mb-2 group-hover:text-primary transition-colors line-clamp-1"
+                  >
+                    Taman Burung Jagat Satwa TMII
+                  </h3>
+                  <p
+                    class="text-[10px] xs:text-xs md:text-sm text-gray-600 mb-2 xs:mb-3 md:mb-4 line-clamp-2"
+                  ></p>
+                  <div
+                    class="flex flex-wrap items-center gap-2 xs:gap-3 md:gap-4 text-[10px] xs:text-xs md:text-sm text-gray-500"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 384 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                        ></path></svg
+                      >Jakarta, DKI Jakarta</span
+                    ><span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M160 288h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56v-64h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56V96h-56c-4.42 0-8-3.58-8-8V72c0-4.42 3.58-8 8-8h56V32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v448c0 2.77.91 5.24 1.57 7.8L160 329.38V288zm320 64h-32v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-41.37L24.2 510.43c2.56.66 5.04 1.57 7.8 1.57h448c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div></div
+            ></a>
+          </div>
+          <div class="group" style="opacity: 1; transform: none">
+            <a
+              class="block"
+              href="https://lokanataaestetika.com/projects/marina-forest"
+              data-discover="true"
+              ><div
+                class="bg-white rounded-lg xs:rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+              >
+                <div
+                  class="relative h-40 xs:h-48 sm:h-56 md:h-64 overflow-hidden"
+                >
+                  <img
+                    alt="Marina Forest"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="./Projects _ Loka Nata Aestetika_files/1779165089002-marina_forest_01.png"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-2 xs:top-3 md:top-4 left-2 xs:left-3 md:left-4"
+                  >
+                    <span
+                      class="px-2 xs:px-3 py-0.5 xs:py-1 bg-primary text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wide rounded-full"
+                      >commercial</span
+                    >
+                  </div>
+                  <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <span
+                      class="px-3 xs:px-4 md:px-6 py-1.5 xs:py-2 md:py-3 bg-white text-primary text-[10px] xs:text-xs md:text-sm font-semibold rounded-full flex items-center gap-1 xs:gap-2"
+                      >View Project
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 448 512"
+                        class="text-[10px] xs:text-xs"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="p-3 xs:p-4 md:p-6">
+                  <h3
+                    class="text-base xs:text-lg md:text-xl font-bold text-gray-900 mb-1 xs:mb-2 group-hover:text-primary transition-colors line-clamp-1"
+                  >
+                    Marina Forest
+                  </h3>
+                  <p
+                    class="text-[10px] xs:text-xs md:text-sm text-gray-600 mb-2 xs:mb-3 md:mb-4 line-clamp-2"
+                  ></p>
+                  <div
+                    class="flex flex-wrap items-center gap-2 xs:gap-3 md:gap-4 text-[10px] xs:text-xs md:text-sm text-gray-500"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 384 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                        ></path></svg
+                      >Labuan Bajo, NTT</span
+                    ><span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M160 288h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56v-64h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56V96h-56c-4.42 0-8-3.58-8-8V72c0-4.42 3.58-8 8-8h56V32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v448c0 2.77.91 5.24 1.57 7.8L160 329.38V288zm320 64h-32v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-41.37L24.2 510.43c2.56.66 5.04 1.57 7.8 1.57h448c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div></div
+            ></a>
+          </div>
+          <div class="group" style="opacity: 1; transform: none">
+            <a
+              class="block"
+              href="https://lokanataaestetika.com/projects/selasar-siger"
+              data-discover="true"
+              ><div
+                class="bg-white rounded-lg xs:rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+              >
+                <div
+                  class="relative h-40 xs:h-48 sm:h-56 md:h-64 overflow-hidden"
+                >
+                  <img
+                    alt="Selasar Siger"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="./Projects _ Loka Nata Aestetika_files/1779164514030-selasar-siger.png"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-2 xs:top-3 md:top-4 left-2 xs:left-3 md:left-4"
+                  >
+                    <span
+                      class="px-2 xs:px-3 py-0.5 xs:py-1 bg-primary text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wide rounded-full"
+                      >commercial</span
+                    >
+                  </div>
+                  <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <span
+                      class="px-3 xs:px-4 md:px-6 py-1.5 xs:py-2 md:py-3 bg-white text-primary text-[10px] xs:text-xs md:text-sm font-semibold rounded-full flex items-center gap-1 xs:gap-2"
+                      >View Project
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 448 512"
+                        class="text-[10px] xs:text-xs"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="p-3 xs:p-4 md:p-6">
+                  <h3
+                    class="text-base xs:text-lg md:text-xl font-bold text-gray-900 mb-1 xs:mb-2 group-hover:text-primary transition-colors line-clamp-1"
+                  >
+                    Selasar Siger
+                  </h3>
+                  <p
+                    class="text-[10px] xs:text-xs md:text-sm text-gray-600 mb-2 xs:mb-3 md:mb-4 line-clamp-2"
+                  ></p>
+                  <div
+                    class="flex flex-wrap items-center gap-2 xs:gap-3 md:gap-4 text-[10px] xs:text-xs md:text-sm text-gray-500"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 384 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                        ></path></svg
+                      >Bakauheni, Lampung</span
+                    ><span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M160 288h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56v-64h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56V96h-56c-4.42 0-8-3.58-8-8V72c0-4.42 3.58-8 8-8h56V32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v448c0 2.77.91 5.24 1.57 7.8L160 329.38V288zm320 64h-32v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-41.37L24.2 510.43c2.56.66 5.04 1.57 7.8 1.57h448c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div></div
+            ></a>
+          </div>
+          <div class="group" style="opacity: 1; transform: none">
+            <a
+              class="block"
+              href="https://lokanataaestetika.com/projects/papastre-cafe"
+              data-discover="true"
+              ><div
+                class="bg-white rounded-lg xs:rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+              >
+                <div
+                  class="relative h-40 xs:h-48 sm:h-56 md:h-64 overflow-hidden"
+                >
+                  <img
+                    alt="Papastre Cafe"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="./Projects _ Loka Nata Aestetika_files/1779163994994-papastre_cafe_01.png"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-2 xs:top-3 md:top-4 left-2 xs:left-3 md:left-4"
+                  >
+                    <span
+                      class="px-2 xs:px-3 py-0.5 xs:py-1 bg-primary text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wide rounded-full"
+                      >commercial</span
+                    >
+                  </div>
+                  <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <span
+                      class="px-3 xs:px-4 md:px-6 py-1.5 xs:py-2 md:py-3 bg-white text-primary text-[10px] xs:text-xs md:text-sm font-semibold rounded-full flex items-center gap-1 xs:gap-2"
+                      >View Project
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 448 512"
+                        class="text-[10px] xs:text-xs"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="p-3 xs:p-4 md:p-6">
+                  <h3
+                    class="text-base xs:text-lg md:text-xl font-bold text-gray-900 mb-1 xs:mb-2 group-hover:text-primary transition-colors line-clamp-1"
+                  >
+                    Papastre Cafe
+                  </h3>
+                  <p
+                    class="text-[10px] xs:text-xs md:text-sm text-gray-600 mb-2 xs:mb-3 md:mb-4 line-clamp-2"
+                  ></p>
+                  <div
+                    class="flex flex-wrap items-center gap-2 xs:gap-3 md:gap-4 text-[10px] xs:text-xs md:text-sm text-gray-500"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 384 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                        ></path></svg
+                      >Jakarta, DKI Jakarta</span
+                    ><span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M160 288h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56v-64h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56V96h-56c-4.42 0-8-3.58-8-8V72c0-4.42 3.58-8 8-8h56V32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v448c0 2.77.91 5.24 1.57 7.8L160 329.38V288zm320 64h-32v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-41.37L24.2 510.43c2.56.66 5.04 1.57 7.8 1.57h448c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div></div
+            ></a>
+          </div>
+          <div class="group" style="opacity: 1; transform: none">
+            <a
+              class="block"
+              href="https://lokanataaestetika.com/projects/sunrise-tennis"
+              data-discover="true"
+              ><div
+                class="bg-white rounded-lg xs:rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+              >
+                <div
+                  class="relative h-40 xs:h-48 sm:h-56 md:h-64 overflow-hidden"
+                >
+                  <img
+                    alt="Sunrise Tennis"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="./Projects _ Loka Nata Aestetika_files/1779162411895-sunrise_tennis.png"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-2 xs:top-3 md:top-4 left-2 xs:left-3 md:left-4"
+                  >
+                    <span
+                      class="px-2 xs:px-3 py-0.5 xs:py-1 bg-primary text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wide rounded-full"
+                      >commercial</span
+                    >
+                  </div>
+                  <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <span
+                      class="px-3 xs:px-4 md:px-6 py-1.5 xs:py-2 md:py-3 bg-white text-primary text-[10px] xs:text-xs md:text-sm font-semibold rounded-full flex items-center gap-1 xs:gap-2"
+                      >View Project
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 448 512"
+                        class="text-[10px] xs:text-xs"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="p-3 xs:p-4 md:p-6">
+                  <h3
+                    class="text-base xs:text-lg md:text-xl font-bold text-gray-900 mb-1 xs:mb-2 group-hover:text-primary transition-colors line-clamp-1"
+                  >
+                    Sunrise Tennis
+                  </h3>
+                  <p
+                    class="text-[10px] xs:text-xs md:text-sm text-gray-600 mb-2 xs:mb-3 md:mb-4 line-clamp-2"
+                  ></p>
+                  <div
+                    class="flex flex-wrap items-center gap-2 xs:gap-3 md:gap-4 text-[10px] xs:text-xs md:text-sm text-gray-500"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 384 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                        ></path></svg
+                      >Bogor, West Java</span
+                    ><span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M160 288h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56v-64h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56V96h-56c-4.42 0-8-3.58-8-8V72c0-4.42 3.58-8 8-8h56V32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v448c0 2.77.91 5.24 1.57 7.8L160 329.38V288zm320 64h-32v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-41.37L24.2 510.43c2.56.66 5.04 1.57 7.8 1.57h448c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div></div
+            ></a>
+          </div>
+          <div class="group" style="opacity: 1; transform: none">
+            <a
+              class="block"
+              href="https://lokanataaestetika.com/projects/tanarasa"
+              data-discover="true"
+              ><div
+                class="bg-white rounded-lg xs:rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+              >
+                <div
+                  class="relative h-40 xs:h-48 sm:h-56 md:h-64 overflow-hidden"
+                >
+                  <img
+                    alt="Tanarasa"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="./Projects _ Loka Nata Aestetika_files/1779113634840-tanarasa_01.png"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-2 xs:top-3 md:top-4 left-2 xs:left-3 md:left-4"
+                  >
+                    <span
+                      class="px-2 xs:px-3 py-0.5 xs:py-1 bg-primary text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wide rounded-full"
+                      >commercial</span
+                    >
+                  </div>
+                  <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <span
+                      class="px-3 xs:px-4 md:px-6 py-1.5 xs:py-2 md:py-3 bg-white text-primary text-[10px] xs:text-xs md:text-sm font-semibold rounded-full flex items-center gap-1 xs:gap-2"
+                      >View Project
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 448 512"
+                        class="text-[10px] xs:text-xs"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="p-3 xs:p-4 md:p-6">
+                  <h3
+                    class="text-base xs:text-lg md:text-xl font-bold text-gray-900 mb-1 xs:mb-2 group-hover:text-primary transition-colors line-clamp-1"
+                  >
+                    Tanarasa
+                  </h3>
+                  <p
+                    class="text-[10px] xs:text-xs md:text-sm text-gray-600 mb-2 xs:mb-3 md:mb-4 line-clamp-2"
+                  ></p>
+                  <div
+                    class="flex flex-wrap items-center gap-2 xs:gap-3 md:gap-4 text-[10px] xs:text-xs md:text-sm text-gray-500"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 384 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                        ></path></svg
+                      >Bogor, West Java</span
+                    ><span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M160 288h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56v-64h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56V96h-56c-4.42 0-8-3.58-8-8V72c0-4.42 3.58-8 8-8h56V32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v448c0 2.77.91 5.24 1.57 7.8L160 329.38V288zm320 64h-32v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-41.37L24.2 510.43c2.56.66 5.04 1.57 7.8 1.57h448c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div></div
+            ></a>
+          </div>
+          <div class="group" style="opacity: 1; transform: none">
+            <a
+              class="block"
+              href="https://lokanataaestetika.com/projects/nana-cafe"
+              data-discover="true"
+              ><div
+                class="bg-white rounded-lg xs:rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+              >
+                <div
+                  class="relative h-40 xs:h-48 sm:h-56 md:h-64 overflow-hidden"
+                >
+                  <img
+                    alt="Nana Cafe"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="./Projects _ Loka Nata Aestetika_files/1779113446389-nana_cafe_01.png"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-2 xs:top-3 md:top-4 left-2 xs:left-3 md:left-4"
+                  >
+                    <span
+                      class="px-2 xs:px-3 py-0.5 xs:py-1 bg-primary text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wide rounded-full"
+                      >commercial</span
+                    >
+                  </div>
+                  <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <span
+                      class="px-3 xs:px-4 md:px-6 py-1.5 xs:py-2 md:py-3 bg-white text-primary text-[10px] xs:text-xs md:text-sm font-semibold rounded-full flex items-center gap-1 xs:gap-2"
+                      >View Project
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 448 512"
+                        class="text-[10px] xs:text-xs"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="p-3 xs:p-4 md:p-6">
+                  <h3
+                    class="text-base xs:text-lg md:text-xl font-bold text-gray-900 mb-1 xs:mb-2 group-hover:text-primary transition-colors line-clamp-1"
+                  >
+                    Nana Cafe
+                  </h3>
+                  <p
+                    class="text-[10px] xs:text-xs md:text-sm text-gray-600 mb-2 xs:mb-3 md:mb-4 line-clamp-2"
+                  ></p>
+                  <div
+                    class="flex flex-wrap items-center gap-2 xs:gap-3 md:gap-4 text-[10px] xs:text-xs md:text-sm text-gray-500"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 384 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                        ></path></svg
+                      >Jakarta, DKI Jakarta</span
+                    ><span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M160 288h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56v-64h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56V96h-56c-4.42 0-8-3.58-8-8V72c0-4.42 3.58-8 8-8h56V32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v448c0 2.77.91 5.24 1.57 7.8L160 329.38V288zm320 64h-32v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-41.37L24.2 510.43c2.56.66 5.04 1.57 7.8 1.57h448c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div></div
+            ></a>
+          </div>
+          <div class="group" style="opacity: 1; transform: none">
+            <a
+              class="block"
+              href="https://lokanataaestetika.com/projects/leuwi-asri-cafe-and-resto"
+              data-discover="true"
+              ><div
+                class="bg-white rounded-lg xs:rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+              >
+                <div
+                  class="relative h-40 xs:h-48 sm:h-56 md:h-64 overflow-hidden"
+                >
+                  <img
+                    alt="Leuwi Asri Cafe and Resto"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="./Projects _ Loka Nata Aestetika_files/1779113175357-leuwi_asri_cafe_1.png"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-2 xs:top-3 md:top-4 left-2 xs:left-3 md:left-4"
+                  >
+                    <span
+                      class="px-2 xs:px-3 py-0.5 xs:py-1 bg-primary text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wide rounded-full"
+                      >commercial</span
+                    >
+                  </div>
+                  <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <span
+                      class="px-3 xs:px-4 md:px-6 py-1.5 xs:py-2 md:py-3 bg-white text-primary text-[10px] xs:text-xs md:text-sm font-semibold rounded-full flex items-center gap-1 xs:gap-2"
+                      >View Project
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 448 512"
+                        class="text-[10px] xs:text-xs"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="p-3 xs:p-4 md:p-6">
+                  <h3
+                    class="text-base xs:text-lg md:text-xl font-bold text-gray-900 mb-1 xs:mb-2 group-hover:text-primary transition-colors line-clamp-1"
+                  >
+                    Leuwi Asri Cafe and Resto
+                  </h3>
+                  <p
+                    class="text-[10px] xs:text-xs md:text-sm text-gray-600 mb-2 xs:mb-3 md:mb-4 line-clamp-2"
+                  ></p>
+                  <div
+                    class="flex flex-wrap items-center gap-2 xs:gap-3 md:gap-4 text-[10px] xs:text-xs md:text-sm text-gray-500"
+                  >
+                    <span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 384 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                        ></path></svg
+                      >Garut, West Java</span
+                    ><span class="flex items-center gap-1"
+                      ><svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        class="text-primary text-[8px] xs:text-[10px]"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M160 288h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56v-64h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56V96h-56c-4.42 0-8-3.58-8-8V72c0-4.42 3.58-8 8-8h56V32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v448c0 2.77.91 5.24 1.57 7.8L160 329.38V288zm320 64h-32v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-41.37L24.2 510.43c2.56.66 5.04 1.57 7.8 1.57h448c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div></div
+            ></a>
+          </div>
+        </div>
+        <div
+          class="mt-10 xs:mt-16 md:mt-20 bg-linear-to-r from-primary-one to-primary-two rounded-xl xs:rounded-2xl p-6 xs:p-8 md:p-12 text-center text-white"
+          style="opacity: 1; transform: none"
+        >
+          <h3 class="text-xl xs:text-2xl md:text-3xl font-bold mb-2 xs:mb-4">
+            Punya Proyek Impian?
+          </h3>
+          <p
+            class="mb-4 xs:mb-6 md:mb-8 text-xs xs:text-sm md:text-base max-w-2xl mx-auto"
+          >
+            Mari wujudkan visi arsitektur Anda bersama tim profesional kami.
+            Konsultasikan kebutuhan proyek Anda sekarang.
+          </p>
+          <a
+            href="https://wa.me/6285175407171"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block px-6 xs:px-8 py-3 xs:py-4 bg-white text-black text-sm xs:text-base font-semibold rounded-full hover:bg-gray-100 transition-colors shadow-lg"
+            >Hubungi Kami</a
+          >
+        </div>
+      </section>
+      <a
+        href="https://wa.me/6285175407171"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="fixed bottom-20 right-6 z-40 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110"
+        aria-label="Contact via WhatsApp"
+        ><svg
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-width="0"
+          viewBox="0 0 448 512"
+          height="28"
+          width="28"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"
+          ></path></svg></a
+      ><button
+        class="fixed right-5 z-50 bg-white hover:bg-[#B8C6BE] flex h-12 w-12 items-center justify-center rounded-full bg-muted shadow-sm transition-all hover:bg-primary hover:text-white cursor-pointer"
+        style="bottom: -32px"
+      >
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-width="0"
+          viewBox="0 0 448 512"
+          class="w-[18px] h-[18px] text-[#0E1113]"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"
+          ></path>
+        </svg>
+      </button>
+      <footer
+        class="text-center bg-[#B8C6BE] text-black px-4 xs:px-6 py-6 xs:py-8 md:py-12 grid grid-cols-5 sm:grid-cols-5 md:grid-cols-5 gap-4 xs:gap-6 text-xs xs:text-sm"
+      >
+        <div
+          class="col-span-2 sm:col-span-3 md:col-span-1 justify-center flex flex-col items-center"
+        >
+          <img
+            alt="Loka nata aestetika"
+            class="h-16 w-16 xs:h-20 xs:w-20 md:h-32 md:w-32 mb-2 xs:mb-4"
+            src="./Projects _ Loka Nata Aestetika_files/lna-AyX9RdRg.png"
+          />
+          <p class="text-center max-w-[200px] xs:max-w-none">
+            Kami adalah perusahaan konsultan desain arsitektur yang terpercaya
+            dan terkemuka,dalam menyajikan solusi inovatif dan berkualitas
+            tinggi.
+          </p>
+        </div>
+        <div class="text-left">
+          <h4 class="font-bold mb-1 xs:mb-2 text-xs xs:text-sm">JAKARTA</h4>
+          <p class="text-[10px] xs:text-xs md:text-sm">
+            Alamanda Tower<br />Jl.TB Simatupang No.kav. 23-24<br />Cilandak,
+            Jakarta
+          </p>
+        </div>
+        <div
+          class="col-span-2 sm:col-span-3 md:col-span-1 flex flex-row sm:flex-col justify-around sm:justify-start gap-4 xs:gap-6"
+        >
+          <div class="text-left">
+            <h4 class="font-bold mb-1 xs:mb-2 text-xs xs:text-sm">LEGAL</h4>
+            <ul class="space-y-0.5 xs:space-y-1">
+              <li>
+                <a
+                  href="https://lokanataaestetika.com/privacy-policy"
+                  class="hover:underline"
+                  >Privacy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://lokanataaestetika.com/terms-of-service"
+                  class="hover:underline"
+                  >Terms</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="text-left">
+            <h4 class="font-bold mb-1 xs:mb-2 text-xs xs:text-sm">CONTACT</h4>
+            <p class="text-[10px] xs:text-xs md:text-sm">
+              <a
+                href="mailto:info@lokanataaestetika.com"
+                class="hover:underline"
+                >info@lokanataaestetika.com</a
+              >
+            </p>
+            <p class="text-[10px] xs:text-xs md:text-sm mt-1">
+              <a href="https://wa.me/6285175407171" class="hover:underline"
+                >(+62) 8517 5407 171</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="text-left">
+          <h4 class="font-bold mb-1 xs:mb-2 text-xs xs:text-sm">SOCIAL</h4>
+          <ul class="space-y-0.5 xs:space-y-1">
+            <li>
+              <a
+                href="https://www.facebook.com/LNAAssociates"
+                class="hover:underline"
+                >Facebook</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/lnaprojects"
+                class="hover:underline"
+                >Instagram</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.tiktok.com/@lokanataaestetika"
+                class="hover:underline"
+                >TikTok</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/company/lna-and-associates/"
+                class="hover:underline"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/channel/UCIOsWY3QV7tNIqj5XQhdbSw/featured"
+                class="hover:underline"
+                >Youtube</a
+              >
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        const header = document.getElementById('siteHeader');
+        if (!header) return;
+        const navLinks = header.querySelectorAll('.nav-link');
+        function applyScrolled(scrolled) {
+          if (scrolled) {
+            header.classList.add('bg-white', 'text-black', 'shadow');
+            header.classList.remove('text-white');
+            navLinks.forEach((a) => {
+              a.classList.remove('text-white');
+              a.classList.add('text-black');
+            });
+          } else {
+            header.classList.remove('bg-white', 'text-black', 'shadow');
+            header.classList.add('text-white');
+            navLinks.forEach((a) => {
+              a.classList.remove('text-black');
+              a.classList.add('text-white');
+            });
+          }
+        }
+        const onScroll = () => applyScrolled(window.scrollY > 10);
+        document.addEventListener('DOMContentLoaded', onScroll);
+        window.addEventListener('scroll', onScroll);
+      })();
+    </script>
+
+    <script
+      defer=""
+      src="./Projects _ Loka Nata Aestetika_files/v833ccba57c9e4d2798f2e76cebdd09a11778172276447"
+      integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ=="
+      data-cf-beacon='{"version":"2024.11.0","token":"af0372d16ed64f52854c69477ac7bf8f","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
+      crossorigin="anonymous"
+    ></script>
+
+    <script async="" src="./Projects _ Loka Nata Aestetika_files/js"></script>
+  </body>
+  <grammarly-desktop-integration
+    data-grammarly-shadow-root="true"
+    style="visibility: visible !important"
+    ><template shadowrootmode="open"
+      ><style>
+        div.grammarly-desktop-integration {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        div.grammarly-desktop-integration:before {
+          content: attr(data-content);
+        }
+      </style>
+      <div
+        aria-label="grammarly-integration"
+        role="group"
+        tabindex="-1"
+        class="grammarly-desktop-integration"
+        data-content='{"mode":"full","isActive":true,"isUserDisabled":false}'
+      ></div></template
+  ></grammarly-desktop-integration>
+</html>
