@@ -78,30 +78,40 @@
         });
     }
 
+    var path = window.location.pathname.toLowerCase();
+
+    var isTeamPage = path.includes('/team/');
+    var imagePrefix = isTeamPage ? '../' : '';      
+
     function renderTeamMembers(container, data) {
-        if (!container.length) {
-            return;
-        }
+    if (!container.length) {
+        return;
+    }
 
-        container.empty();
+    var path = window.location.pathname.toLowerCase();
+    var isTeamPage = path.includes('/team/');
+    var imagePrefix = isTeamPage ? '../' : '';
 
-        data.forEach(function (member, index) {
-            var delay = 0.1 + (index % 4) * 0.2;
+    container.empty();
 
-            var item =
-                '<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="' + delay + 's">' +
-                    '<div class="team-item position-relative">' +
-                        '<div class="position-relative">' +
-                            '<img class="img-fluid" src="' + member.image + '" alt="' + member.name + '">' +
-                        '</div>' +
-                        '<div class="bg-light text-center p-4">' +
-                            '<h3 class="mt-2">' + member.name + '</h3>' +
-                            '<span class="text-primary">' + member.role + '</span>' +
-                        '</div>' +
+    data.forEach(function (member, index) {
+        var delay = 0.1 + (index % 4) * 0.2;
+        var imagePath = imagePrefix + member.image;
+
+        var item =
+            '<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="' + delay + 's">' +
+                '<div class="team-item position-relative">' +
+                    '<div class="position-relative">' +
+                        '<img class="img-fluid" src="' + imagePath + '" alt="' + member.name + '">' +
                     '</div>' +
-                '</div>';
+                    '<div class="bg-light text-center p-4">' +
+                        '<h3 class="mt-2">' + member.name + '</h3>' +
+                        '<span class="text-primary">' + member.role + '</span>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
 
-            container.append(item);
+        container.append(item);
         });
     }
 
