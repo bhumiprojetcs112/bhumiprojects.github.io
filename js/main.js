@@ -55,26 +55,28 @@
         format: 'LT'
     });
 
-// Handle custom message input button
-    document.getElementById("waLink").addEventListener("click", function (e) {
-    e.preventDefault();
+// Handle custom message input button (only attach if element exists)
+    var waLink = document.getElementById("waLink");
+    if (waLink) {
+        waLink.addEventListener("click", function (e) {
+            e.preventDefault();
 
-    var message = document.getElementById("message").value.trim();
+            var messageInput = document.getElementById("message");
+            var message = messageInput ? messageInput.value.trim() : "";
 
-    if (message === "") {
-        alert("Please enter your message.");
-        return;
+            if (message === "") {
+                alert("Please enter your message.");
+                return;
+            }
+
+            // Ganti dengan nomor admin tanpa tanda +
+            var phone = "6282142824797";
+
+            var whatsappUrl = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+
+            window.open(whatsappUrl, "_blank");
+        });
     }
-
-    // Ganti dengan nomor admin tanpa tanda +
-    var phone = "6282142824797";
-
-    var whatsappUrl =
-        "https://wa.me/" + phone + "?text=" +
-        encodeURIComponent(message);
-
-    window.open(whatsappUrl, "_blank");
-});
 
     function renderTeamMembers(container, data) {
         if (!container.length) {
