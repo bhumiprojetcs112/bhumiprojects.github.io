@@ -1,0 +1,10 @@
+[
+  { "employee_id": 1, "name": "Alya Putri", "role": "Lead Architect", "image": "img/team-1.jpg", "status": "Active" },
+  { "employee_id": 2, "name": "Rafi Nugroho", "role": "Interior Designer", "image": "img/team-2.jpg", "status": "inactive" },
+  { "employee_id": 3, "name": "Sasha Widya", "role": "Project Manager", "image": "img/team-3.jpg", "status": "Active" },
+  { "employee_id": 4, "name": "Bima Pratama", "role": "Landscape Specialist", "image": "img/team-4.jpg", "status": "Active" },
+  { "employee_id": 5, "name": "Nadia Kurnia", "role": "Architect", "image": "img/team-2.jpg", "status": "Active" },
+  { "employee_id": 6, "name": "Fajar Hartono", "role": "Engineer", "image": "img/team-3.jpg", "status": "Active" },
+  { "employee_id": 7, "name": "Maya Salsabila", "role": "Designer", "image": "img/team-4.jpg", "status": "inactive" },
+  { "employee_id": 8, "name": "Rian Aditya", "role": "Planner", "image": "img/team-1.jpg", "status": "Active" }
+]

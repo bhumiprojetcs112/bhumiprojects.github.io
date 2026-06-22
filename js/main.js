@@ -55,6 +55,68 @@
         format: 'LT'
     });
 
+    function renderTeamMembers(container, data) {
+        if (!container.length) {
+            return;
+        }
+
+        container.empty();
+
+        data.forEach(function (member, index) {
+            var delay = 0.1 + (index % 4) * 0.2;
+
+            var item =
+                '<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="' + delay + 's">' +
+                    '<div class="team-item position-relative">' +
+                        '<div class="position-relative">' +
+                            '<img class="img-fluid" src="' + member.image + '" alt="' + member.name + '">' +
+                        '</div>' +
+                        '<div class="bg-light text-center p-4">' +
+                            '<h3 class="mt-2">' + member.name + '</h3>' +
+                            '<span class="text-primary">' + member.role + '</span>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+
+            container.append(item);
+        });
+    }
+
+    function loadTeamMembers(filePath, container, limit) {
+        fetch(filePath)
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error('HTTP error ' + response.status);
+                }
+                return response.json();
+            })
+            .then(function (teamData) {
+                var activeMembers = teamData
+                    .filter(function (member) {
+                        return String(member.status).toLowerCase() === 'active';
+                    });
+
+                if (limit) {
+                    activeMembers = activeMembers.slice(0, limit);
+                }
+
+                renderTeamMembers(container, activeMembers);
+            })
+            .catch(function (error) {
+                console.error('Gagal memuat data team dari ' + filePath + ':', error);
+            });
+    }
+
+    var teamListContainer = $('#team-list');
+    if (teamListContainer.length) {
+        var sourceFile = teamListContainer.data('source') || 'jsonfile/employee.json';
+        var limit = teamListContainer.data('limit');
+        if (limit) {
+            limit = parseInt(limit, 10);
+        }
+
+        loadTeamMembers(sourceFile, teamListContainer, limit);
+    }
 
     // Header carousel
     $(".header-carousel").owlCarousel({
