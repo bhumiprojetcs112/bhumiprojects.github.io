@@ -756,77 +756,6 @@
       crossorigin=""
       href="./style/index-CndH7STt.css"
     />
-    <link
-      rel="modulepreload"
-      as="script"
-      crossorigin=""
-      href="https://lokanataaestetika.com/assets/header-Dv_TiIG1.js"
-    />
-    <link
-      rel="modulepreload"
-      as="script"
-      crossorigin=""
-      href="https://lokanataaestetika.com/assets/lna-CMLJJeaF.js"
-    />
-    <link
-      rel="modulepreload"
-      as="script"
-      crossorigin=""
-      href="https://lokanataaestetika.com/assets/index-Dqe8IwSd.js"
-    />
-    <link
-      rel="modulepreload"
-      as="script"
-      crossorigin=""
-      href="https://lokanataaestetika.com/assets/ProjectDetail-HFWEcxkb.js"
-    />
-    <link
-      rel="modulepreload"
-      as="script"
-      crossorigin=""
-      href="https://lokanataaestetika.com/assets/ProjectCard-Cf1Fg9Yl.js"
-    />
-    <link
-      rel="modulepreload"
-      as="script"
-      crossorigin=""
-      href="https://lokanataaestetika.com/assets/project-O2kua72B.js"
-    />
-    <link
-      rel="modulepreload"
-      as="script"
-      crossorigin=""
-      href="https://lokanataaestetika.com/assets/constants-Cc0zeayf.js"
-    />
-    <link
-      rel="modulepreload"
-      as="script"
-      crossorigin=""
-      href="https://lokanataaestetika.com/assets/proxy-DArSP5ip.js"
-    />
-    <link
-      rel="modulepreload"
-      as="script"
-      crossorigin=""
-      href="https://lokanataaestetika.com/assets/index-ByqkPH8a.js"
-    />
-    <link
-      rel="modulepreload"
-      as="script"
-      crossorigin=""
-      href="https://lokanataaestetika.com/assets/ShadowLoading-CUZYY2oi.js"
-    />
-    <link
-      rel="modulepreload"
-      as="script"
-      crossorigin=""
-      href="https://lokanataaestetika.com/assets/footer-Z0fCGTmr.js"
-    />
-    <link
-      rel="canonical"
-      href="https://lokanataaestetika.com/projects/landscape-bendungan-cipanas-wika-jakon"
-      data-rh="true"
-    />
     <meta
       name="description"
       content="Landscape Bendungan Cipanas dirancang sebagai ruang publik yang menghubungkan infrastruktur, alam, dan pengalaman manusia dalam satu kesatuan kawasan yang harmonis. Mengusung pendekatan lanskap tropis modern, proyek ini menghadirkan area terbuka yang nyaman, sirkulasi pedestrian yang terintegrasi, serta ruang interaksi yang menyatu dengan panorama bendungan dan kontur alam sekitarnya. Penataan vegetasi, elemen hardscape, dan area rekreasi dirancang untuk menciptakan suasana yang tenang sekaligus aktif bagi pengunjung. Proyek ini tidak hanya memperkuat fungsi kawasan bendungan sebagai infrastruktur strategis, tetapi juga menghadirkan nilai sosial, ekologis, dan visual bagi lingkungan sekitarnya. Sebuah ruang lanskap yang menghadirkan keseimbangan antara utilitas, rekreasi, dan keindahan alam."
@@ -884,7 +813,7 @@
         aria-relevant="additions text"
         aria-label="Notifications Alt+T"
       ></section>
-      <header id="siteHeader" class="fixed top-0 z-20 w-full bg-white" style="z-index: 99">
+      <header id="siteHeader" class="fixed top-0 z-20 w-full" style="z-index: 99">
         <div
           class="flex items-center transition-all px-3 xs:px-4 xl:px-20 h-[100px] lg:h-[120px] lg:py-3 py-3 bg-transparent"
         >
@@ -1020,7 +949,7 @@
             <path
               d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
             ></path></svg
-          >Kembali
+          ><a href="../projects" class="text-gray-600 hover:text-primary transition-colors">Kembali</a>
         </button>
       </div>
       <div
@@ -1364,7 +1293,7 @@
           <img
             alt="Loka nata aestetika"
             class="h-16 w-16 xs:h-20 xs:w-20 md:h-32 md:w-32 mb-2 xs:mb-4"
-            src="./Landscape Bendungan Cipanas, Wika-Jakon _ Loka Nata Aestetika_files/lna-AyX9RdRg.png"
+            src="../bhumiprojects - Architecture Studio_files/logo-1.png"
           />
           <p class="text-center max-w-[200px] xs:max-w-none">
             Kami adalah perusahaan konsultan desain arsitektur yang terpercaya
@@ -1451,6 +1380,33 @@
         </div>
       </footer>
     </div>
+    <script>
+      const header = document.getElementById("siteHeader");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      function handleNavbar() {
+          if (window.scrollY > 10) {
+              header.classList.add("bg-white", "shadow");
+              header.classList.remove("bg-transparent");
+
+              navLinks.forEach(link => {
+                  link.classList.remove("text-black");
+                  link.classList.add("text-black");
+              });
+          } else {
+              header.classList.remove("bg-white", "shadow");
+              header.classList.add("bg-transparent");
+
+              navLinks.forEach(link => {
+                  link.classList.remove("text-black");
+                  link.classList.add("text-black");
+              });
+          }
+      }
+
+      window.addEventListener("scroll", handleNavbar);
+      handleNavbar();
+    </script>
     <script
       defer=""
       src="./Landscape Bendungan Cipanas, Wika-Jakon _ Loka Nata Aestetika_files/v833ccba57c9e4d2798f2e76cebdd09a11778172276447"
