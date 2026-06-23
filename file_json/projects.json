@@ -1,101 +1,53 @@
 [
   {
-    "id": 1,
-    "title": "E House",
-    "href": "../service_details/",
-    "image": "./Projects _ Loka Nata Aestetika_files/1781755540414-01FACADE1.jpg",
-    "category": "residential",
-    "location": "South Jakarta",
-    "description": ""
-  },
-  {
-    "id": 2,
+    "id": "A7K9X2",
+    "slug": "landscape-bendungan-cipanas-wika-jakon",
     "title": "Landscape Bendungan Cipanas, Wika-Jakon",
-    "href": "https://lokanataaestetika.com/projects/landscape-bendungan-cipanas-wika-jakon",
-    "image": "./Projects _ Loka Nata Aestetika_files/1779168933964-cipanas.png",
-    "category": "commercial",
-    "location": "Cipanas, West Java",
-    "description": ""
+    "image": "../service_details/style/lna-AyX9RdRg.png",
+    "category": "Landscape Architecture",
+    "location": "Bendungan Cipanas",
+    "luas_area": "5.600 m²",
+    "tahun": "2024",
+    "client": "Wika-Jakon",
+    "description": "Landscape Bendungan Cipanas dirancang sebagai ruang publik yang menghubungkan infrastruktur, alam, dan pengalaman manusia dalam satu kesatuan kawasan yang harmonis. Mengusung pendekatan lanskap tropis modern, proyek ini menghadirkan area terbuka yang nyaman, sirkulasi pedestrian yang terintegrasi, serta ruang interaksi yang menyatu dengan panorama bendungan dan kontur alam sekitarnya. Penataan vegetasi, elemen hardscape, dan area rekreasi dirancang untuk menciptakan suasana yang tenang sekaligus aktif bagi pengunjung.",
+    "status": "Selesai",
+    "gallery": [
+      "../service_details/style/lna-AyX9RdRg.png",
+      "../service_details/style/1779168933964-cipanas.png"
+    ]
   },
   {
-    "id": 3,
-    "title": "Taman Komodo Jagat Satwa TMII",
-    "href": "https://lokanataaestetika.com/projects/taman-komodo-jagat-satwa-tmii",
-    "image": "./Projects _ Loka Nata Aestetika_files/1779165666227-TamanKomodoJagatSatwaTMII.png",
-    "category": "commercial",
-    "location": "Jakarta, DKI Jakarta",
-    "description": ""
+    "id": "A7K9X234",
+    "slug": "interior-bendungan-cipanas-wika-jakon",
+    "title": "Interior Bendungan Cipanas, Wika-Jakon",
+    "image": "../service_details/style/service-page-3.png",
+    "category": "Interior Design",
+    "location": "Bendungan Cipanas",
+    "luas_area": "5.600 m²",
+    "tahun": "2023",
+    "client": "Wika-Jakon",
+    "description": "Landscape Bendungan Cipanas dirancang sebagai ruang publik yang menghubungkan infrastruktur, alam, dan pengalaman manusia dalam satu kesatuan kawasan yang harmonis. Mengusung pendekatan lanskap tropis modern, proyek ini menghadirkan area terbuka yang nyaman, sirkulasi pedestrian yang terintegrasi, serta ruang interaksi yang menyatu dengan panorama bendungan dan kontur alam sekitarnya. Penataan vegetasi, elemen hardscape, dan area rekreasi dirancang untuk menciptakan suasana yang tenang sekaligus aktif bagi pengunjung.",
+    "status": "Selesai",
+    "gallery": [
+      "../service_details/style/service-page-3.png",
+      "../service_details/style/service-page-3.png"
+    ]
   },
   {
-    "id": 4,
-    "title": "Taman Burung Jagat Satwa TMII",
-    "href": "https://lokanataaestetika.com/projects/taman-burung-jagat-satwa-tmii",
-    "image": "./Projects _ Loka Nata Aestetika_files/1779165448550-taman_burung_jagat_satwa_TMII.png",
-    "category": "commercial",
-    "location": "Jakarta, DKI Jakarta",
-    "description": ""
-  },
-  {
-    "id": 5,
-    "title": "Marina Forest",
-    "href": "https://lokanataaestetika.com/projects/marina-forest",
-    "image": "./Projects _ Loka Nata Aestetika_files/1779165089002-marina_forest_01.png",
-    "category": "commercial",
-    "location": "Labuan Bajo, NTT",
-    "description": ""
-  },
-  {
-    "id": 6,
-    "title": "Selasar Siger",
-    "href": "https://lokanataaestetika.com/projects/selasar-siger",
-    "image": "./Projects _ Loka Nata Aestetika_files/1779164514030-selasar-siger.png",
-    "category": "commercial",
-    "location": "Bakauheni, Lampung",
-    "description": ""
-  },
-  {
-    "id": 7,
-    "title": "Papastre Cafe",
-    "href": "https://lokanataaestetika.com/projects/papastre-cafe",
-    "image": "./Projects _ Loka Nata Aestetika_files/1779163994994-papastre_cafe_01.png",
-    "category": "commercial",
-    "location": "Jakarta, DKI Jakarta",
-    "description": ""
-  },
-  {
-    "id": 8,
-    "title": "Sunrise Tennis",
-    "href": "https://lokanataaestetika.com/projects/sunrise-tennis",
-    "image": "./Projects _ Loka Nata Aestetika_files/1779162411895-sunrise_tennis.png",
-    "category": "commercial",
-    "location": "Bogor, West Java",
-    "description": ""
-  },
-  {
-    "id": 9,
-    "title": "Tanarasa",
-    "href": "https://lokanataaestetika.com/projects/tanarasa",
-    "image": "./Projects _ Loka Nata Aestetika_files/1779113634840-tanarasa_01.png",
-    "category": "commercial",
-    "location": "Bogor, West Java",
-    "description": ""
-  },
-  {
-    "id": 10,
-    "title": "Nana Cafe",
-    "href": "https://lokanataaestetika.com/projects/nana-cafe",
-    "image": "./Projects _ Loka Nata Aestetika_files/1779113446389-nana_cafe_01.png",
-    "category": "commercial",
-    "location": "Jakarta, DKI Jakarta",
-    "description": ""
-  },
-  {
-    "id": 11,
-    "title": "Leuwi Asri Cafe and Resto",
-    "href": "https://lokanataaestetika.com/projects/leuwi-asri-cafe-and-resto",
-    "image": "./Projects _ Loka Nata Aestetika_files/1779113175357-leuwi_asri_cafe_1.png",
-    "category": "commercial",
-    "location": "Garut, West Java",
-    "description": ""
+    "id": "A7K9X289",
+    "slug": "landscape-bendungan-cipanas-wika-jakon",
+    "title": "Landscape Bendungan Cipanas, Wika-Jakon",
+    "image": "../service_details/style/1779168945875-cipanas.png",
+    "category": "Landscape Architecture",
+    "location": "Bendungan sutami",
+    "luas_area": "5.600 m²",
+    "tahun": "2024",
+    "client": "Wika-Jakon",
+    "description": "Landscape Bendungan Cipanas dirancang sebagai ruang publik yang menghubungkan infrastruktur, alam, dan pengalaman manusia dalam satu kesatuan kawasan yang harmonis. Mengusung pendekatan lanskap tropis modern, proyek ini menghadirkan area terbuka yang nyaman, sirkulasi pedestrian yang terintegrasi, serta ruang interaksi yang menyatu dengan panorama bendungan dan kontur alam sekitarnya. Penataan vegetasi, elemen hardscape, dan area rekreasi dirancang untuk menciptakan suasana yang tenang sekaligus aktif bagi pengunjung.",
+    "status": "Selesai",
+    "gallery": [
+      "../service_details/style/1779168945875-cipanas.png",
+      "../service_details/style/1779168933964-cipanas.png"
+    ]
   }
 ]
