@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "title": "E House",
+    "href": "../service_details/",
+    "image": "./Projects _ Loka Nata Aestetika_files/1781755540414-01FACADE1.jpg",
+    "category": "residential",
+    "location": "South Jakarta",
+    "description": ""
+  },
+  {
+    "id": 2,
+    "title": "Landscape Bendungan Cipanas, Wika-Jakon",
+    "href": "https://lokanataaestetika.com/projects/landscape-bendungan-cipanas-wika-jakon",
+    "image": "./Projects _ Loka Nata Aestetika_files/1779168933964-cipanas.png",
+    "category": "commercial",
+    "location": "Cipanas, West Java",
+    "description": ""
+  },
+  {
+    "id": 3,
+    "title": "Taman Komodo Jagat Satwa TMII",
+    "href": "https://lokanataaestetika.com/projects/taman-komodo-jagat-satwa-tmii",
+    "image": "./Projects _ Loka Nata Aestetika_files/1779165666227-TamanKomodoJagatSatwaTMII.png",
+    "category": "commercial",
+    "location": "Jakarta, DKI Jakarta",
+    "description": ""
+  },
+  {
+    "id": 4,
+    "title": "Taman Burung Jagat Satwa TMII",
+    "href": "https://lokanataaestetika.com/projects/taman-burung-jagat-satwa-tmii",
+    "image": "./Projects _ Loka Nata Aestetika_files/1779165448550-taman_burung_jagat_satwa_TMII.png",
+    "category": "commercial",
+    "location": "Jakarta, DKI Jakarta",
+    "description": ""
+  },
+  {
+    "id": 5,
+    "title": "Marina Forest",
+    "href": "https://lokanataaestetika.com/projects/marina-forest",
+    "image": "./Projects _ Loka Nata Aestetika_files/1779165089002-marina_forest_01.png",
+    "category": "commercial",
+    "location": "Labuan Bajo, NTT",
+    "description": ""
+  },
+  {
+    "id": 6,
+    "title": "Selasar Siger",
+    "href": "https://lokanataaestetika.com/projects/selasar-siger",
+    "image": "./Projects _ Loka Nata Aestetika_files/1779164514030-selasar-siger.png",
+    "category": "commercial",
+    "location": "Bakauheni, Lampung",
+    "description": ""
+  },
+  {
+    "id": 7,
+    "title": "Papastre Cafe",
+    "href": "https://lokanataaestetika.com/projects/papastre-cafe",
+    "image": "./Projects _ Loka Nata Aestetika_files/1779163994994-papastre_cafe_01.png",
+    "category": "commercial",
+    "location": "Jakarta, DKI Jakarta",
+    "description": ""
+  },
+  {
+    "id": 8,
+    "title": "Sunrise Tennis",
+    "href": "https://lokanataaestetika.com/projects/sunrise-tennis",
+    "image": "./Projects _ Loka Nata Aestetika_files/1779162411895-sunrise_tennis.png",
+    "category": "commercial",
+    "location": "Bogor, West Java",
+    "description": ""
+  },
+  {
+    "id": 9,
+    "title": "Tanarasa",
+    "href": "https://lokanataaestetika.com/projects/tanarasa",
+    "image": "./Projects _ Loka Nata Aestetika_files/1779113634840-tanarasa_01.png",
+    "category": "commercial",
+    "location": "Bogor, West Java",
+    "description": ""
+  },
+  {
+    "id": 10,
+    "title": "Nana Cafe",
+    "href": "https://lokanataaestetika.com/projects/nana-cafe",
+    "image": "./Projects _ Loka Nata Aestetika_files/1779113446389-nana_cafe_01.png",
+    "category": "commercial",
+    "location": "Jakarta, DKI Jakarta",
+    "description": ""
+  },
+  {
+    "id": 11,
+    "title": "Leuwi Asri Cafe and Resto",
+    "href": "https://lokanataaestetika.com/projects/leuwi-asri-cafe-and-resto",
+    "image": "./Projects _ Loka Nata Aestetika_files/1779113175357-leuwi_asri_cafe_1.png",
+    "category": "commercial",
+    "location": "Garut, West Java",
+    "description": ""
+  }
+]
