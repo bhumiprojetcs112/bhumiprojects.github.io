@@ -944,26 +944,18 @@
         </div>
         <div class="flex flex-wrap justify-center gap-3 mb-12">
           <button
-            class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-primary-one text-white shadow-lg"
-          >
+            class="filter-btn px-6 py-3 rounded-full font-medium transition-all duration-300 bg-primary-one text-white shadow-lg"
+            data-category="All">
             Semua Proyek</button
           ><button
-            class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-white text-gray-700 hover:bg-primary-two hover:text-white border border-gray-200"
-          >
-            Perumahan</button
+               class="filter-btn px-6 py-3 rounded-full font-medium transition-all duration-300 bg-white text-gray-700 hover:bg-primary-two hover:text-white border border-gray-200"
+            data-category="Landscape Architecture">
+            Landscape Architecture</button
           ><button
-            class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-white text-gray-700 hover:bg-primary-two hover:text-white border border-gray-200"
+            class="filter-btn px-6 py-3 rounded-full font-medium transition-all duration-300 bg-white text-gray-700 hover:bg-primary-two hover:text-white border border-gray-200"
+            data-category="Interior Design">
+            Interior Design</button
           >
-            Komersial</button
-          ><button
-            class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-white text-gray-700 hover:bg-primary-two hover:text-white border border-gray-200"
-          >
-            Interior</button
-          ><button
-            class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-white text-gray-700 hover:bg-primary-two hover:text-white border border-gray-200"
-          >
-            Booth &amp; Pameran
-          </button>
         </div>
         <div class="text-center mb-6 xs:mb-8">
           <span class="text-xs xs:text-sm md:text-base text-gray-600"
@@ -975,6 +967,49 @@
             Memuat proyek...
           </div>
         </div>
+        <script>
+          const activeClasses = [
+          "bg-primary-one",
+          "text-white",
+          "shadow-lg"
+      ];
+
+      const inactiveClasses = [
+          "bg-white",
+          "text-gray-700",
+          "border",
+          "border-gray-200"
+      ];
+
+      document.querySelectorAll(".filter-btn").forEach(button => {
+
+          button.addEventListener("click", function () {
+
+              document.querySelectorAll(".filter-btn").forEach(btn => {
+
+                  btn.classList.remove(...activeClasses);
+
+                  btn.classList.add(...inactiveClasses);
+              });
+
+              this.classList.remove(...inactiveClasses);
+
+              this.classList.add(...activeClasses);
+
+              const category = this.dataset.category;
+
+              if (category === "All") {
+                  renderProjects(allProjects);
+              } else {
+                  renderProjects(
+                      allProjects.filter(
+                          p => p.category === category
+                      )
+                  );
+              }
+          });
+      });
+        </script>
         <script>
           (function () {
             const grid = document.getElementById('project-grid');
@@ -1036,7 +1071,7 @@
                 if (!response.ok) throw new Error('Gagal memuat data proyek.');
                 const projects = await response.json();
                 const projectCardHTML = project => {
-                  const projectLink = project.href || `../project_details/index.html?project=${encodeURIComponent(project.id)}`;
+                  const projectLink = project.href || `../project_details/?project=${encodeURIComponent(project.id)}`;
                   return `
                     <a class="block" href="${escapeHtml(projectLink)}" data-discover="true">
                       <div class="bg-white rounded-lg xs:rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
