@@ -968,174 +968,156 @@
           </div>
         </div>
         <script>
-          const activeClasses = [
-          "bg-primary-one",
-          "text-white",
-          "shadow-lg"
-      ];
+          const grid = document.getElementById('project-grid');
 
-      const inactiveClasses = [
-          "bg-white",
-          "text-gray-700",
-          "border",
-          "border-gray-200"
-      ];
+          let allProjects = [];
 
-      document.querySelectorAll(".filter-btn").forEach(button => {
-
-          button.addEventListener("click", function () {
-
-              document.querySelectorAll(".filter-btn").forEach(btn => {
-
-                  btn.classList.remove(...activeClasses);
-
-                  btn.classList.add(...inactiveClasses);
-              });
-
-              this.classList.remove(...inactiveClasses);
-
-              this.classList.add(...activeClasses);
-
-              const category = this.dataset.category;
-
-              if (category === "All") {
-                  renderProjects(allProjects);
-              } else {
-                  renderProjects(
-                      allProjects.filter(
-                          p => p.category === category
-                      )
-                  );
-              }
-          });
-      });
-        </script>
-        <script>
-          (function () {
-            const grid = document.getElementById('project-grid');
-            const escapeHtml = str => String(str)
+          const escapeHtml = str => String(str)
               .replace(/&/g, '&amp;')
               .replace(/</g, '&lt;')
               .replace(/>/g, '&gt;')
               .replace(/"/g, '&quot;')
               .replace(/'/g, '&#39;');
 
-            const projectCardHTML = project => `
-              <a class="block" href="${escapeHtml(project.id)}" data-discover="true">
-                <div class="bg-white rounded-lg xs:rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-                  <div class="relative h-40 xs:h-48 sm:h-56 md:h-64 overflow-hidden">
-                    <img alt="${escapeHtml(project.title)}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="${escapeHtml(project.image)}" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute top-2 xs:top-3 md:top-4 left-2 xs:left-3 md:left-4">
-                      <span class="px-2 xs:px-3 py-0.5 xs:py-1 bg-primary text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wide rounded-full">
-                        ${escapeHtml(project.category)}
-                      </span>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span class="px-3 xs:px-4 md:px-6 py-1.5 xs:py-2 md:py-3 bg-white text-primary text-[10px] xs:text-xs md:text-sm font-semibold rounded-full flex items-center gap-1 xs:gap-2">
-                        View Project
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="text-[10px] xs:text-xs" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path>
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="p-3 xs:p-4 md:p-6">
-                    <h3 class="text-base xs:text-lg md:text-xl font-bold text-gray-900 mb-1 xs:mb-2 group-hover:text-primary transition-colors line-clamp-1">
-                      ${escapeHtml(project.title)}
-                    </h3>
-                    <p class="text-[10px] xs:text-xs md:text-sm text-gray-600 mb-2 xs:mb-3 md:mb-4 line-clamp-2">
-                      ${escapeHtml(project.description || '')}
-                    </p>
-                    <div class="flex flex-wrap items-center gap-2 xs:gap-3 md:gap-4 text-[10px] xs:text-xs md:text-sm text-gray-500">
-                      <span class="flex items-center gap-1">
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="text-primary text-[8px] xs:text-[10px]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path>
-                        </svg>
-                        ${escapeHtml(project.location)}
-                      </span>
-                      <span class="flex items-center gap-1">
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="text-primary text-[8px] xs:text-[10px]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M160 288h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56v-64h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56V96h-56c-4.42 0-8-3.58-8-8V72c0-4.42 3.58-8 8-8h56V32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v448c0 2.77.91 5.24 1.57 7.8L160 329.38V288zm320 64h-32v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-41.37L24.2 510.43c2.56.66 5.04 1.57 7.8 1.57h448c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"></path>
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            `;
+          const projectCardHTML = project => {
+              const projectLink =
+                  project.href ||
+                  `../project_details/?project=${encodeURIComponent(project.id)}`;
 
-            async function loadProjects() {
-              try {
-                const response = await fetch('../file_json/projects.json');
-                if (!response.ok) throw new Error('Gagal memuat data proyek.');
-                const projects = await response.json();
-                const projectCardHTML = project => {
-                  const projectLink = project.href || `../project_details/?project=${encodeURIComponent(project.id)}`;
-                  return `
-                    <a class="block" href="${escapeHtml(projectLink)}" data-discover="true">
+              return `
+                  <a class="block" href="${escapeHtml(projectLink)}">
                       <div class="bg-white rounded-lg xs:rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="relative h-40 xs:h-48 sm:h-56 md:h-64 overflow-hidden">
-                          <img alt="${escapeHtml(project.title)}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="${escapeHtml(project.image)}" />
-                          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                          <div class="absolute top-2 xs:top-3 md:top-4 left-2 xs:left-3 md:left-4">
-                            <span class="px-2 xs:px-3 py-0.5 xs:py-1 bg-primary text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wide rounded-full">
-                              ${escapeHtml(project.category)}
-                            </span>
-                          </div>
-                          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <span class="px-3 xs:px-4 md:px-6 py-1.5 xs:py-2 md:py-3 bg-white text-primary text-[10px] xs:text-xs md:text-sm font-semibold rounded-full flex items-center gap-1 xs:gap-2">
-                              View Project
-                              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="text-[10px] xs:text-xs" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path>
-                              </svg>
-                            </span>
-                          </div>
-                        </div>
-                        <div class="p-3 xs:p-4 md:p-6">
-                          <h3 class="text-base xs:text-lg md:text-xl font-bold text-gray-900 mb-1 xs:mb-2 group-hover:text-primary transition-colors line-clamp-1">
-                            ${escapeHtml(project.title)}
-                          </h3>
-                          <p class="text-[10px] xs:text-xs md:text-sm text-gray-600 mb-2 xs:mb-3 md:mb-4 line-clamp-2">
-                            ${escapeHtml(project.description || '')}
-                          </p>
-                          <div class="flex flex-wrap items-center gap-2 xs:gap-3 md:gap-4 text-[10px] xs:text-xs md:text-sm text-gray-500">
-                            <span class="flex items-center gap-1">
-                              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="text-primary text-[8px] xs:text-[10px]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path>
-                              </svg>
-                              ${escapeHtml(project.location)}
-                            </span>
-                            <span class="flex items-center gap-1">
-                              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="text-primary text-[8px] xs:text-[10px]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M160 288h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56v-64h-56c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h56V96h-56c-4.42 0-8-3.58-8-8V72c0-4.42 3.58-8 8-8h56V32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v448c0 2.77.91 5.24 1.57 7.8L160 329.38V288zm320 64h-32v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-64v56c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-56h-41.37L24.2 510.43c2.56.66 5.04 1.57 7.8 1.57h448c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"></path>
-                              </svg>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  `;
-                };
-                grid.innerHTML = projects.length
-                  ? projects.map(project => `<div class="group">${projectCardHTML(project)}</div>`).join('')
-                  : '<div class="text-center col-span-full">Tidak ada proyek tersedia.</div>';
-              } catch (error) {
-                grid.innerHTML = `<div class="text-center col-span-full">Gagal memuat proyek. ${escapeHtml(error.message)}</div>`;
-              }
-            }
+                          <div class="relative h-40 xs:h-48 sm:h-56 md:h-64 overflow-hidden">
+                              <img alt="${escapeHtml(project.title)}"
+                                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                  src="${escapeHtml(project.image)}" />
 
-            loadProjects();
-          })();
-        </script>
-        <script>
-          fetch("../file_json/projects.json")
-          .then(response => response.json())
-          .then(projects => {
+                              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                              <div class="absolute top-2 xs:top-3 md:top-4 left-2 xs:left-3 md:left-4">
+                                  <span class="px-2 xs:px-3 py-0.5 xs:py-1 bg-primary text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wide rounded-full">
+                                      ${escapeHtml(project.category)}
+                                  </span>
+                              </div>
+
+                              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                  <span class="px-3 xs:px-4 md:px-6 py-1.5 xs:py-2 md:py-3 bg-white text-primary text-[10px] xs:text-xs md:text-sm font-semibold rounded-full flex items-center gap-1 xs:gap-2">
+                                      View Project
+                                  </span>
+                              </div>
+                          </div>
+
+                          <div class="p-3 xs:p-4 md:p-6">
+                              <h3 class="text-base xs:text-lg md:text-xl font-bold text-gray-900 mb-1 xs:mb-2 group-hover:text-primary transition-colors line-clamp-1">
+                                  ${escapeHtml(project.title)}
+                              </h3>
+
+                              <p class="text-[10px] xs:text-xs md:text-sm text-gray-600 mb-2 xs:mb-3 md:mb-4 line-clamp-2">
+                                  ${escapeHtml(project.description || '')}
+                              </p>
+
+                              <div class="flex flex-wrap items-center gap-2 xs:gap-3 md:gap-4 text-[10px] xs:text-xs md:text-sm text-gray-500">
+                                  <span class="flex items-center gap-1">
+                                      ${escapeHtml(project.location)}
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </a>
+              `;
+          };
+
+          function renderProjects(projects) {
+
+              grid.innerHTML = projects.length
+                  ? projects.map(project =>
+                      `<div class="group">
+                          ${projectCardHTML(project)}
+                      </div>`
+                  ).join('')
+                  : `
+                      <div class="text-center col-span-full">
+                          Tidak ada proyek tersedia.
+                      </div>
+                  `;
+
               document.getElementById("projectCount").textContent =
                   projects.length;
+          }
+
+          async function loadProjects() {
+              try {
+                  const response =
+                      await fetch('../file_json/projects.json');
+
+                  if (!response.ok)
+                      throw new Error('Gagal memuat data proyek.');
+
+                  allProjects = await response.json();
+
+                  renderProjects(allProjects);
+
+              } catch (error) {
+
+                  grid.innerHTML = `
+                      <div class="text-center col-span-full">
+                          Gagal memuat proyek.
+                      </div>
+                  `;
+              }
+          }
+
+          loadProjects();
+
+          // FILTER
+          document.querySelectorAll(".filter-btn")
+              .forEach(button => {
+
+                  button.addEventListener("click", function () {
+
+                      document.querySelectorAll(".filter-btn")
+                          .forEach(btn => {
+                              btn.classList.remove(
+                                  "bg-primary-one",
+                                  "text-white",
+                                  "shadow-lg"
+                              );
+
+                              btn.classList.add(
+                                  "bg-white",
+                                  "text-gray-700",
+                                  "border",
+                                  "border-gray-200"
+                              );
+                          });
+
+                      this.classList.remove(
+                          "bg-white",
+                          "text-gray-700",
+                          "border",
+                          "border-gray-200"
+                      );
+
+                      this.classList.add(
+                          "bg-primary-one",
+                          "text-white",
+                          "shadow-lg"
+                      );
+
+                      const category = this.dataset.category;
+
+                      const filteredProjects =
+                          category === "All"
+                              ? allProjects
+                              : allProjects.filter(
+                                  p => p.category === category
+                              );
+
+                      renderProjects(filteredProjects);
+                  });
           });
         </script>
+       
         <div
           class="mt-10 xs:mt-16 md:mt-20 bg-linear-to-r from-primary-one to-primary-two rounded-xl xs:rounded-2xl p-6 xs:p-8 md:p-12 text-center text-white"
           style="opacity: 1; transform: none"
@@ -1364,16 +1346,6 @@
         window.addEventListener('scroll', onScroll);
       })();
     </script>
-
-    <script
-      defer=""
-      src="./Projects _ Loka Nata Aestetika_files/v833ccba57c9e4d2798f2e76cebdd09a11778172276447"
-      integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ=="
-      data-cf-beacon='{"version":"2024.11.0","token":"af0372d16ed64f52854c69477ac7bf8f","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
-      crossorigin="anonymous"
-    ></script>
-
-    <script async="" src="./Projects _ Loka Nata Aestetika_files/js"></script>
   </body>
   <grammarly-desktop-integration
     data-grammarly-shadow-root="true"
