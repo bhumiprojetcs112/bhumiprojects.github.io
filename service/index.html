@@ -727,12 +727,7 @@
         }
       }
     </style>
-
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="https://lokanataaestetika.com/assets/favicon-32x32-BVgbJYN3.png"
-    />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="icon"
@@ -746,12 +741,6 @@
       href="./Arsitek Profesional untuk Desain Rumah &amp; Komersial _ LNA And Associates_files/css2"
       rel="stylesheet"
     />
-
-    <script
-      type="module"
-      crossorigin=""
-      src="./Arsitek Profesional untuk Desain Rumah &amp; Komersial _ LNA And Associates_files/index-FF8IWWlA.js.download"
-    ></script>
     <link
       rel="stylesheet"
       crossorigin=""
@@ -2088,75 +2077,40 @@
       })();
     </script>
     <script>
-      const translations = {
-        en: {
-          "nav.home": "Home",
-          "nav.about": "About",
-          "nav.service": "Service",
-          "nav.projects": "Projects",
-          "nav.blogs": "Blogs",
-          "hero.title": "BHUMI <br> PROJECTS <br>",
-          "hero.subtitle": "More than well design, Your house reflecting you",
-          "about.small": "Design is not just about appearance, but also function.",
-          "about.title": "The best quality begins with precise planning.",
-          "about.text": "We deliver superior and reliable architectural solutions. With a friendly team of professionals, we are ready to partner with you at every stage of your project. We don't just follow trends—we build works that provide real value and tangible impact.",
-          "achievements.title": "Our Achievements",
-          "achievements.text": "Our projects are dominated by residential or housing categories and interior design for both residential and commercial spaces. Throughout 2024, LNA and Associates has completed more than 25 design projects across almost all of Indonesia.",
-          "metric.experience": "Year of Experience",
-          "metric.projects": "Projects Completed",
-          "video.title": "Discover Our Works in Video",
-          "video.text": "Explore our unique design works through inspiring videos. In every movement and perspective, we reveal the beauty and functionality of each space.",
-          "projectsSection.small": "All Projects",
-          "projectsSection.title": "Our Latest Projects",
-          "projectsSection.text": "Our focus is not just on design, but on creating meaningful spaces with real impact.",
-          "projectsSection.small": "Work project",
-          "projectsSection.title": "Our Featured projects",
-          "projectsSection.text": "Our focus is not just on design, but on creating meaningful spaces with real impact.",
-          "footer.description": "We are a trusted and leading architectural design consulting firm, delivering innovative and high-quality solutions."
-        },
-        id: {
-          "nav.home": "Beranda",
-          "nav.about": "Tentang",
-          "nav.service": "Layanan",
-          "nav.projects": "Proyek",
-          "nav.blogs": "Blog",
-          "hero.title": "BHUMI <br> PROJECTS <br>",
-          "hero.subtitle": "Lebih dari desain yang baik, rumah Anda mencerminkan diri Anda",
-          "about.small": "Desain bukan hanya tentang penampilan, tetapi juga fungsi.",
-          "about.title": "Kualitas terbaik dimulai dengan perencanaan yang tepat.",
-          "about.text": "Kami memberikan solusi arsitektur yang unggul dan andal. Dengan tim profesional yang ramah, kami siap bermitra dengan Anda di setiap tahap proyek. Kami tidak hanya mengikuti tren—kami membangun karya yang memberikan nilai nyata dan dampak yang nyata.",
-          "achievements.title": "Prestasi Kami",
-          "achievements.text": "Proyek kami didominasi oleh kategori hunian atau perumahan serta desain interior untuk ruang hunian dan komersial. Sepanjang 2024, LNA and Associates telah menyelesaikan lebih dari 25 proyek desain di hampir seluruh Indonesia.",
-          "metric.experience": "Tahun Pengalaman",
-          "metric.projects": "Proyek Selesai",
-          "video.title": "Temukan Karya Kami dalam Video",
-          "video.text": "Jelajahi karya desain unik kami melalui video inspiratif. Dalam setiap gerakan dan perspektif, kami menampilkan keindahan dan fungsionalitas setiap ruang.",
-          "projectsSection.small": "Semua Proyek",
-          "projectsSection.title": "Proyek Terbaru Kami",
-          "projectsSection.text": "Fokus kami bukan hanya pada desain, tetapi pada penciptaan ruang bermakna dengan dampak nyata.",
-          "projectsSection.small": "Layanan Kerja",
-          "projectsSection.title": "Layanan Unggulan Kami",
-          "projectsSection.text": "Fokus kami bukan hanya pada desain, tetapi pada penciptaan ruang bermakna dengan dampak nyata.",
-          "footer.description": "Kami adalah firma konsultan desain arsitektur terpercaya dan terdepan, memberikan solusi inovatif dan berkualitas tinggi."
-        }
-      };
+       let translations = {};
+
+      async function loadTranslations() {
+          const response = await fetch("../file_json/translations_service.json");
+          translations = await response.json();
+
+          const savedLang =
+              localStorage.getItem("bhumiLanguage") || "en";
+
+          setLanguage(savedLang);
+      }
+
+      loadTranslations();
 
       function setLanguage(lang) {
-        const entries = translations[lang] || translations.en;
-        document.documentElement.lang = lang;
-        document.querySelectorAll("[data-i18n]").forEach((element) => {
-          const key = element.getAttribute("data-i18n");
+      if (!translations || !translations[lang]) return;
+
+      const entries = translations[lang];
+
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+          const key = element.dataset.i18n;
           const value = entries[key];
+
           if (value !== undefined) {
-            if (key === "hero.title") {
-              element.innerHTML = value;
-            } else {
-              element.textContent = value;
-            }
+              if (key === "hero.title") {
+                  element.innerHTML = value;
+              } else {
+                  element.textContent = value;
+              }
           }
-        });
-        localStorage.setItem("bhumiLanguage", lang);
-      }
+      });
+
+      localStorage.setItem("bhumiLanguage", lang);
+  }
 
       document.addEventListener("DOMContentLoaded", () => {
         const switcher = document.getElementById("languageSwitcher");
@@ -2170,13 +2124,6 @@
         setLanguage(savedLang);
       });
     </script>
-    <script
-      defer=""
-      src="./Arsitek Profesional untuk Desain Rumah &amp; Komersial _ LNA And Associates_files/v833ccba57c9e4d2798f2e76cebdd09a11778172276447"
-      integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ=="
-      data-cf-beacon='{"version":"2024.11.0","token":"af0372d16ed64f52854c69477ac7bf8f","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
-      crossorigin="anonymous"
-    ></script>
 
     <script
       async=""
