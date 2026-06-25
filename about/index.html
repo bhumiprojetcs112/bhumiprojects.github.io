@@ -869,6 +869,14 @@
                       >Projects</a
                     >
                   </li>
+                  <li>
+                    <a
+                      href="../contact"
+                      data-i18n="nav.contact"
+                      class="nav-link inline-flex h-10 items-center justify-center px-2 lg:px-3 2lg:px-4 py-2 text-[14px] lg:text-[15px] 2lg:text-[17px] font-bold transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50 cursor-pointer text-white hover:text-[#B8C6BE]"
+                      >Contact</a
+                    >
+                  </li>
                 </ul>
                 <div class="flex items-center gap-1 pr-1 lg:pr-4 2lg:pr-4">
                   <select
@@ -885,8 +893,8 @@
             </div>
             <div class="flex lg:hidden">
               <div class="">
-                <button
-                  class="text-white hover:text-[#B8C6BE] &quot; lg:hidden text-gray-800 focus:outline-none cursor-pointer &quot;"
+                <button id="menuBtn"
+                  class="hover:text-[#B8C6BE] &quot; lg:hidden text-gray-800 focus:outline-none cursor-pointer &quot;"
                 >
                   <svg
                     stroke="currentColor"
@@ -905,6 +913,44 @@
                 </button>
               </div>
             </div>
+            <div
+                  id="mobileMenu"
+                  class="fixed inset-0 bg-white z-50 hidden flex-col h-screen"
+              >
+                  <!-- Tombol Close -->
+                  <div class="flex justify-end p-8">
+                      <button
+                          id="closeBtn"
+                          class="text-4xl cursor-pointer text-black"
+                      >
+                          ✕
+                      </button>
+                  </div>
+
+                  <!-- Menu -->
+                  <div class="flex-1 flex flex-col justify-center items-center gap-8 text-2xl text-black">
+                      <a href="../" data-i18n="nav.home">Home</a>
+                      <a href="./" data-i18n="nav.about">About</a>
+                      <a href="../service/" data-i18n="nav.service">Service</a>
+                      <a href="../projects/" data-i18n="nav.projects">Projects</a>
+                      <a href="../contact" data-i18n="nav.contact">Contact</a>
+                  </div>
+              </div>
+              <script>
+                const menuBtn = document.getElementById("menuBtn");
+                const closeBtn = document.getElementById("closeBtn");
+                const mobileMenu = document.getElementById("mobileMenu");
+
+                menuBtn.addEventListener("click", () => {
+                    mobileMenu.classList.remove("hidden");
+                    mobileMenu.classList.add("flex");
+                });
+
+                closeBtn.addEventListener("click", () => {
+                    mobileMenu.classList.remove("flex");
+                    mobileMenu.classList.add("hidden");
+                });
+              </script>
           </div>
         </div>
       </header>
