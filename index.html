@@ -1704,7 +1704,7 @@
        let translations = {};
 
       async function loadTranslations() {
-          const response = await fetch("../file_json/translations_home.json");
+          const response = await fetch("./file_json/translations_home.json");
           translations = await response.json();
 
           const savedLang =
