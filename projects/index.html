@@ -969,12 +969,12 @@
           <div
             class="relative z-10 flex flex-col justify-center items-center h-full px-4 xs:px-6 sm:px-8 md:px-12 lg:px-20 bg-black/50 text-white"
           >
-            <h1
+            <h1 data-i18n="hero.tittle"
               class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 xs:mb-4 animate-fadeInUp text-center"
             >
               Proyek Kami
             </h1>
-            <p
+            <p data-i18n="hero.text"
               class="text-xs xs:text-sm md:text-base lg:text-lg text-center max-w-2xl px-4"
             >
               Jelajahi portofolio desain arsitektur kami yang menginspirasi
@@ -989,12 +989,12 @@
           class="text-center mb-6 xs:mb-8 md:mb-12"
           style="opacity: 1; transform: none"
         >
-          <h2
+          <h2 data-i18n="history.tittle"
             class="text-xl xs:text-2xl md:text-3xl font-bold text-gray-900 mb-2 xs:mb-4"
           >
             Portofolio Proyek
           </h2>
-          <p
+          <p data-i18n="history.description"
             class="text-xs xs:text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed"
           >
             Kami berdedikasi untuk menciptakan ruang yang fungsional, estetis,
@@ -1003,7 +1003,7 @@
           </p>
         </div>
         <div class="flex flex-wrap justify-center gap-3 mb-12">
-          <button
+          <button data-i18n="history.all"
             class="filter-btn px-6 py-3 rounded-full font-medium transition-all duration-300 bg-primary-one text-white shadow-lg"
             data-category="All">
             Semua Proyek</button
@@ -1018,12 +1018,14 @@
           >
         </div>
         <div class="text-center mb-6 xs:mb-8">
-          <span class="text-xs xs:text-sm md:text-base text-gray-600"
-            >Menampilkan <span id="projectCount"></span> proyek</span
+          <span data-i18n="history.display"
+            class="text-xs xs:text-sm md:text-base text-gray-600"
+            >Menampilkan </span> <span id="projectCount" class="text-gray-600"></span> <span class="text-gray-600" data-i18n="history.project"> proyek</span
           >
         </div>
         <div id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 md:gap-8">
-          <div class="text-center col-span-full">
+          <div  data-i18n="history.loading"
+            class="text-center col-span-full">
             Memuat proyek...
           </div>
         </div>
@@ -1182,16 +1184,17 @@
           class="mt-10 xs:mt-16 md:mt-20 bg-linear-to-r from-primary-one to-primary-two rounded-xl xs:rounded-2xl p-6 xs:p-8 md:p-12 text-center text-white"
           style="opacity: 1; transform: none"
         >
-          <h3 class="text-xl xs:text-2xl md:text-3xl font-bold mb-2 xs:mb-4">
+          <h3  data-i18n="question.tittle"
+            class="text-xl xs:text-2xl md:text-3xl font-bold mb-2 xs:mb-4">
             Punya Proyek Impian?
           </h3>
-          <p
+          <p data-i18n="question.text"
             class="mb-4 xs:mb-6 md:mb-8 text-xs xs:text-sm md:text-base max-w-2xl mx-auto"
           >
             Mari wujudkan visi arsitektur Anda bersama tim profesional kami.
             Konsultasikan kebutuhan proyek Anda sekarang.
           </p>
-          <a
+          <a data-i18n="question.button"
             href="https://wa.me/6282142824797"
             target="_blank"
             rel="noopener noreferrer"
