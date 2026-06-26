@@ -872,7 +872,7 @@
                     >
                   </li>
                 </ul>
-                <div class="flex items-center gap-1 pr-1 lg:pr-4 2lg:pr-4">
+                <div class="flex items-center gap-1 pr-1 lg:pr-4 2lg:pr-4 order-2">
                   <select
                     id="languageSwitcher"
                     class="px-2 py-1 lg:px-3 2lg:px-3 rounded-md text-xs lg:text-sm cursor-pointer bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
@@ -885,7 +885,7 @@
               </nav>
               <div class="hidden lg:flex gap-3 items-center"></div>
             </div>
-            <div class="flex lg:hidden">
+            <div class="flex lg:hidden order-1">
               <div class="">
                 <button id="menuBtn"
                   class="hover:text-[#B8C6BE] &quot; lg:hidden text-gray-800 focus:outline-none cursor-pointer &quot;"
@@ -930,6 +930,16 @@
                       <a href="../contact" data-i18n="nav.contact">Contact</a>
                   </div>
               </div>
+              <div class="flex items-center gap-1 pr-1 lg:pr-4 2lg:pr-4 lg:hidden">
+                  <select
+                    id="languageSwitchermobile"
+                    class="px-2 py-1 lg:px-3 2lg:px-3 rounded-md text-xs lg:text-sm cursor-pointer bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                    aria-label="Select language"
+                  >
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="id">🇮🇩 ID</option>
+                  </select>
+                </div>
               <script>
                 const menuBtn = document.getElementById("menuBtn");
                 const closeBtn = document.getElementById("closeBtn");
@@ -1315,8 +1325,17 @@
           ></path>
         </svg> </button>
       <footer
-        class="text-center bg-[#B8C6BE] text-black px-4 xs:px-6 py-6 xs:py-8 md:py-12 grid grid-cols-3 sm:grid-cols-5 md:grid-cols-4 gap-4 xs:gap-6 text-xs xs:text-sm"
-      >
+          class="
+            bg-[#B8C6BE]
+            text-black
+            px-4 py-8
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-4
+            gap-8
+          "
+        >
         <div
           class=" col-span-3 sm:col-span-4 md:col-span-1 justify-center flex flex-col items-center"
         >
@@ -1326,12 +1345,10 @@
             src="../bhumiprojects - Architecture Studio_files/logo-1.png"
           />
           <p data-i18n="footer.description" class="mt-4 max-w-sm text-sm leading-7 text-black/68 font-medium">
-            We are a trusted and leading architectural design consulting firm,
-            delivering innovative and high-quality solutions.
           </p>
         </div>
         <div class="text-left col-span-3 sm:col-span-3 md:col-span-1">
-          <h4 class="text-sm font-semibold uppercase tracking-[0.16em] text-black">Office</h4>
+          <h4  data-i18n="footer.office" class="text-sm font-semibold uppercase tracking-[0.16em] text-black"></h4>
           <div class="mt-4 space-y-4 text-sm text-black/70">
             <div class="flex gap-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin mt-1 h-4 w-4 shrink-0 text-primary-two" aria-hidden="true">
@@ -1343,14 +1360,16 @@
             </div>
           </div>
           <div class="text-left col-span-3 sm:col-span-2 md:col-span-1 gap-3 flex flex-col">
-            <h4 class="text-sm font-semibold uppercase tracking-[0.16em] text-black">Contact</h4>
+            <h4 data-i18n="footer.contact" class="text-sm font-semibold uppercase tracking-[0.16em] text-black"></h4>
            <a href="mailto:bhumiprojects@gmail.com" class="flex min-w-0 items-center gap-3 transition hover:text-black">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-4 w-4 shrink-0 text-primary-two" aria-hidden="true">
                 <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7">
                 </path>
                 </svg>
-                <span class="break-all">bhumiprojects@gmail.com</span>
+                <div class="flex flex-col flex-1">
+                  <span class="break-all">bhumiproject@gmail.com</span>
+                </div>
                 </a>
                 <a href="https://wa.me/6282142824797" target="_blank" rel="noopener noreferrer" 
                 class="flex items-center gap-3 transition hover:text-black">
@@ -1360,15 +1379,8 @@
             </a>
           </div>
           <div>
-          <h4 class="text-sm font-semibold uppercase tracking-[0.16em] text-black text-left">Social Media</h4>
+          <h4 data-i18n="footer.sosmed" class="text-sm font-semibold uppercase tracking-[0.16em] text-black text-left"></h4>
           <div class="mt-4 flex flex-wrap gap-3">
-            <a href="https://www.facebook.com/LNAAssociates" target="_blank" rel="noopener noreferrer" 
-                aria-label="Facebook" class=" rounded-full flex h-10 w-10 items-center justify-center border border-black/15 text-black/72 transition hover:border-primary-two hover:bg-primary-two hover:text-white">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
-                  </path>
-                </svg>
-              </a>
               <a href="https://www.instagram.com/bhumiprojects" target="_blank" rel="noopener noreferrer" 
                 aria-label="Instagram" class=" rounded-full flex h-10 w-10 items-center justify-center border border-black/15 text-black/72 transition hover:border-primary-two hover:bg-primary-two hover:text-white">
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -1389,13 +1401,21 @@
                   </path>
                 </svg>
               </a>
-              <a href="https://www.youtube.com/channel/UCIOsWY3QV7tNIqj5XQhdbSw/featured" target="_blank" rel="noopener noreferrer" 
-              aria-label="YouTube" class="rounded-full flex h-10 w-10 items-center justify-center border border-black/15 text-black/72 transition hover:border-primary-two hover:bg-primary-two hover:text-white">
-              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z">                  
-                </path>
-              </svg>
-            </a>
+              <a href="https://www.threads.net/@bhumiprojects"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Threads"
+                class="rounded-full flex h-10 w-10 items-center justify-center border border-black/15 text-black/72 transition hover:border-primary-two hover:bg-primary-two hover:text-white">
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  fill="currentColor"
+                  class="h-4 w-4">
+                  <path d="M331.5 235.7c2.2 .9 4.2 1.9 6.3 2.8c29.2 14.1 50.6 35.2 61.8 61.4c15.1 35.5 11.8 74.6-9.3 110.1c-19.3 32.5-51.7 56.7-91.2 68.2c-42.9 12.5-90.8 10.7-134.8-5.2c-39.7-14.3-72.1-40.5-91.1-73.7c-18.6-32.3-24.2-69.9-15.8-105.9c8.3-35.6 29.6-67.4 60-89.4c26.5-19.2 59.4-31.3 95.2-34.9c1.5-.2 3-.3 4.5-.4c-.3-1.8-.5-3.6-.5-5.4c0-18.4 15-33.4 33.4-33.4s33.4 15 33.4 33.4c0 3.7-.6 7.2-1.7 10.5c17.4 3.8 34 10 49.3 18.5zm-87.7 28.6c-39.5 0-71.5 23.5-71.5 52.5s32 52.5 71.5 52.5s71.5-23.5 71.5-52.5s-32-52.5-71.5-52.5zm6.2-232.3c-91.8 0-166.2 74.4-166.2 166.2S158.2 364.4 250 364.4s166.2-74.4 166.2-166.2S341.8 32 250 32z"/>
+                </svg>
+
+              </a>
           </div>
         </div>
       </footer>
@@ -1617,6 +1637,19 @@
         }
         setLanguage(savedLang);
       });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const switcher = document.getElementById("languageSwitchermobile");
+        const savedLang = localStorage.getItem("bhumiLanguage") || "en";
+        if (switcher) {
+          switcher.value = savedLang;
+          switcher.addEventListener("change", (event) => {
+            setLanguage(event.target.value);
+          });
+        }
+        setLanguage(savedLang);
+      });
+
     </script>
   </body>
   <grammarly-desktop-integration
