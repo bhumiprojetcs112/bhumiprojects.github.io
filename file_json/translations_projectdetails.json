@@ -16,13 +16,10 @@
           "metric.projects": "Projects Completed",
           "video.title": "Discover Our Works in Video",
           "video.text": "Explore our unique design works through inspiring videos. In every movement and perspective, we reveal the beauty and functionality of each space.",
-          "projectsSection.small": "All Projects",
-          "projectsSection.title": "Our Latest Projects",
-          "projectsSection.text": "Our focus is not just on design, but on creating meaningful spaces with real impact.",
-          "projectsSection.small": "Work project",
-          "projectsSection.title": "Our Featured projects",
-          "projectsSection.text": "Our focus is not just on design, but on creating meaningful spaces with real impact.",
-          "footer.description": "We are a trusted and leading architectural design consulting firm, delivering innovative and high-quality solutions."
+          "footer.description": "We are a trusted and leading architectural design consulting firm, delivering innovative and high-quality solutions.",
+          "footer.office" : "OFFICE",
+          "footer.contact" : "CONTACT",
+          "footer.sosmed" : "SOCIAL MEDIA"
         },
         "id": {
           "nav.home": "Beranda",
@@ -41,12 +38,9 @@
           "metric.projects": "Proyek Selesai",
           "video.title": "Temukan Karya Kami dalam Video",
           "video.text": "Jelajahi karya desain unik kami melalui video inspiratif. Dalam setiap gerakan dan perspektif, kami menampilkan keindahan dan fungsionalitas setiap ruang.",
-          "projectsSection.small": "Semua Proyek",
-          "projectsSection.title": "Proyek Terbaru Kami",
-          "projectsSection.text": "Fokus kami bukan hanya pada desain, tetapi pada penciptaan ruang bermakna dengan dampak nyata.",
-          "projectsSection.small": "Layanan Kerja",
-          "projectsSection.title": "Layanan Unggulan Kami",
-          "projectsSection.text": "Fokus kami bukan hanya pada desain, tetapi pada penciptaan ruang bermakna dengan dampak nyata.",
-          "footer.description": "Kami adalah firma konsultan desain arsitektur terpercaya dan terdepan, memberikan solusi inovatif dan berkualitas tinggi."
+          "footer.description": "Kami adalah firma konsultan desain arsitektur terpercaya dan terdepan, memberikan solusi inovatif dan berkualitas tinggi.",
+          "footer.office" : "KANTOR",
+          "footer.contact" : "KONTAK",
+          "footer.sosmed" : "Media Sosial"
         }
       }
