@@ -886,7 +886,7 @@
                     >
                   </li>
                 </ul>
-                <div class="flex items-center gap-1 pr-1 lg:pr-4 2lg:pr-4">
+                <div class="flex items-center gap-1 pr-1 lg:pr-4 2lg:pr-4 order-2">
                   <select
                     id="languageSwitcher"
                     class="px-2 py-1 lg:px-3 2lg:px-3 rounded-md text-xs lg:text-sm cursor-pointer bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
@@ -899,7 +899,7 @@
               </nav>
               <div class="hidden lg:flex gap-3 items-center"></div>
             </div>
-            <div class="flex lg:hidden">
+            <div class="flex lg:hidden order-1">
               <div class="">
                 <button id="menuBtn"
                   class="hover:text-[#B8C6BE] &quot; lg:hidden text-gray-800 focus:outline-none cursor-pointer &quot;"
@@ -944,6 +944,16 @@
                       <a href="./contact" data-i18n="nav.contact">Contact</a>
                   </div>
               </div>
+              <div class="flex items-center gap-1 pr-1 lg:pr-4 2lg:pr-4 lg:hidden">
+                  <select
+                    id="languageSwitchermobile"
+                    class="px-2 py-1 lg:px-3 2lg:px-3 rounded-md text-xs lg:text-sm cursor-pointer bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                    aria-label="Select language"
+                  >
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="id">🇮🇩 ID</option>
+                  </select>
+                </div>
               <script>
                 const menuBtn = document.getElementById("menuBtn");
                 const closeBtn = document.getElementById("closeBtn");
@@ -1009,7 +1019,7 @@
             <div
               class="flex flex-col lg:flex-row -mx-4 items-center gap-8 lg:gap-0"
             >
-              <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0 order-2 lg:order-1">
+              <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0 order-1 lg:order-1">
                 <div class="grid grid-cols-2 gap-2 xs:gap-3 md:gap-4">
                   <div>
                     <img
@@ -1027,7 +1037,7 @@
                   </div>
                 </div>
               </div>
-              <div class="w-full lg:w-1/2 px-4 order-1 lg:order-2">
+              <div class="w-full lg:w-1/2 px-4 order-2 lg:order-2">
                 <div class="bg-gray-100 p-4 xs:p-6">
                   <div class="arc-home-about-left">
                     <div class="arc-home-left-content bg-white" style="border-radius: 0.8rem;">
@@ -1580,8 +1590,17 @@
         </svg>
       </button>
       <footer
-        class="text-center bg-[#B8C6BE] text-black px-4 xs:px-6 py-6 xs:py-8 md:py-12 grid grid-cols-3 sm:grid-cols-5 md:grid-cols-4 gap-4 xs:gap-6 text-xs xs:text-sm"
-      >
+          class="
+            bg-[#B8C6BE]
+            text-black
+            px-4 py-8
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-4
+            gap-8
+          "
+        >
         <div
           class=" col-span-3 sm:col-span-4 md:col-span-1 justify-center flex flex-col items-center"
         >
@@ -1613,7 +1632,9 @@
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7">
                 </path>
                 </svg>
-                <span class="break-all">bhumiprojects@gmail.com</span>
+                <div class="flex flex-col flex-1">
+                  <span class="break-all">bhumiproject@gmail.com</span>
+                </div>
                 </a>
                 <a href="https://wa.me/6282142824797" target="_blank" rel="noopener noreferrer" 
                 class="flex items-center gap-3 transition hover:text-black">
@@ -1756,6 +1777,18 @@
 
       document.addEventListener("DOMContentLoaded", () => {
         const switcher = document.getElementById("languageSwitcher");
+        const savedLang = localStorage.getItem("bhumiLanguage") || "en";
+        if (switcher) {
+          switcher.value = savedLang;
+          switcher.addEventListener("change", (event) => {
+            setLanguage(event.target.value);
+          });
+        }
+        setLanguage(savedLang);
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const switcher = document.getElementById("languageSwitchermobile");
         const savedLang = localStorage.getItem("bhumiLanguage") || "en";
         if (switcher) {
           switcher.value = savedLang;
