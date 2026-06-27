@@ -1101,9 +1101,10 @@
                   </div>
 
                   <button data-i18n="service.choose" 
-                    class="mt-6 bg-[#B8C6BE] hover:bg-[#A0C878] text-white font-bold py-3 rounded-lg transition">
-                    Choose
-                  </button>
+                      class="choose-btn mt-6 bg-[#B8C6BE] hover:bg-[#A0C878] text-white font-bold py-3 rounded-lg transition"
+                      data-service="Architectural Design">
+                      Choose
+                </button>
                 </div>
 
                 <!-- CARD 2 -->
@@ -1144,11 +1145,11 @@
                       </ul>
                     </div>
                   </div>
-
                   <button data-i18n="service.choose" 
-                    class="mt-6 bg-[#B8C6BE] hover:bg-[#A0C878] text-white font-bold py-3 rounded-lg transition">
-                    Choose
-                  </button>
+                      class="choose-btn mt-6 bg-[#B8C6BE] hover:bg-[#A0C878] text-white font-bold py-3 rounded-lg transition"
+                      data-service="Interior Design">
+                      Choose
+                </button>
                 </div>
 
                 <!-- CARD 3 -->
@@ -1199,11 +1200,11 @@
                       </ul>
                     </div>
                   </div>
-
                   <button data-i18n="service.choose"
-                    class="mt-6 bg-[#B8C6BE] hover:bg-[#A0C878] text-white font-bold py-3 rounded-lg transition">
-                    Choose
-                  </button>
+                      class="choose-btn mt-6 bg-[#B8C6BE] hover:bg-[#A0C878] text-white font-bold py-3 rounded-lg transition"
+                      data-service="Architecture + Interior">
+                      Choose
+                </button>
                 </div>
 
                 <!-- CARD 4 -->
@@ -1244,9 +1245,9 @@
                       </ul>
                     </div>
                   </div>
-
                   <button data-i18n="service.choose"
-                    class="mt-6 bg-[#B8C6BE] hover:bg-[#A0C878] text-white font-bold py-3 rounded-lg transition">
+                    class="choose-btn mt-6 bg-[#B8C6BE] hover:bg-[#A0C878] text-white font-bold py-3 rounded-lg transition"
+                    data-service="Design & Construction">
                     Choose
                   </button>
                 </div>
@@ -1254,6 +1255,29 @@
               </div>
           </div>
         </section>
+        <script>
+            const phone = "6282142824797"; // Ganti dengan nomor WA Anda
+
+            document.querySelectorAll(".choose-btn").forEach(button => {
+                button.addEventListener("click", function () {
+
+                    const service = this.dataset.service;
+
+                    const message = `Halo, saya tertarik dengan paket *${service}*.
+
+            Mohon informasi lebih lanjut mengenai:
+            - Harga
+            - Proses pengerjaan
+            - Estimasi waktu
+
+            Terima kasih.`;
+
+                    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+                    window.open(url, "_blank");
+                });
+            });
+            </script>
         <section
           class="w-full py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 bg-gray-100 overflow-hidden"
         >
