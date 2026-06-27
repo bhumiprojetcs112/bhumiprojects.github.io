@@ -9,6 +9,16 @@
       * {
             font-family: 'Montserrat', sans-serif;
         }
+      .contact-btn{
+    background:#2A2421;
+    color:#fff;
+    transition:.3s;
+    }
+
+    .contact-btn:hover{
+        background:#c9c3c3;
+        color:#5f7772;
+    }
       :root {
         --toastify-color-light: #fff;
         --toastify-color-dark: #121212;
@@ -987,8 +997,10 @@
         <div class="container mx-auto px-4 xs:px-6 md:px-8" style="margin-top: 5%; margin-bottom:5%;">
           <div
           class="flex flex-col lg:flex-row -mx-4 items-center gap-8 lg:gap-0"
+          
           >
-          <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0 order-1 lg:order-1" style="padding: 10%">
+          <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0 order-1 lg:order-1"
+          style="background-color: #f6f4f2; padding:5%; border-radius:5%">
                <h2 data-i18n="contact.qr"      
                         class="text-xl xs:text-2xl md:text-3xl font-semibold mt-2 text-gray-900"
                       >
@@ -996,9 +1008,15 @@
                       </h2>
                     <img
                       alt="design-1"
-                      class="w-full h-auto rounded shadow-md"
+                      class="h-auto rounded shadow-md"
+                      style="max-width: 30%;"
                       src="./style/qrcode.png"
                     />
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+
+
+                  </div>
+
               </div>
               <div class="w-full lg:w-1/2 px-4 order-2 lg:order-2">
                 <div class="bg-gray-100 p-4 xs:p-6" style="border-radius:5%">
@@ -1053,7 +1071,6 @@
                         id="waLink"
                         type="button"
                         class="
-                          bg-[#B8C6BE]
                           border
                           w-full
                           md:w-auto
@@ -1064,18 +1081,18 @@
                           px-8
                           py-4
                           rounded-full
-                          bg-[#5f7772]
+                          contact-btn
                           text-white
                           font-semibold
                           shadow-lg
-                          hover:bg-[#4d6762]
+                          hover:contact-btn
                           hover:shadow-xl
                           transition-all
                           duration-300
                         "
                         style="margin-bottom: 5%;"
                       >
-                       <p data-i18n="contact.button" class="text-middle text-sm text-black bg-[#B8C6BE]">Contact Us</p>
+                       <p data-i18n="contact.button" class="text-middle text-sm text-white">Contact Us</p>
                       </button>
                       <script>
                         document.getElementById("waLink").addEventListener("click", function () {
@@ -1140,7 +1157,7 @@
           ></path>
         </svg>
       </button>
-      <footer class="bg-[#B8C6BE] text-black">
+      <footer class="text-black" style="background-color: #c9c3c3;">
             <!-- Main Footer -->
             <div class="container mx-auto px-4 xs:px-6 md:px-8 py-10 xs:py-12 md:py-16">
 
@@ -1150,7 +1167,7 @@
                 <div class="min-w-0">
                   <a href="/" class="inline-flex max-w-full items-center gap-3">
                     <img
-                      src="../bhumiprojects - Architecture Studio_files/logo-1.png"
+                      src="../bhumiprojects - Architecture Studio_files/logo-2.png"
                       alt="Bhumi Projects"
                       class="h-16 w-16 xs:h-20 xs:w-20 object-contain"
                     />
@@ -1161,7 +1178,7 @@
                   </a>
 
                   <p data-i18n="footer.description"
-                    class="mt-4 max-w-sm text-sm leading-7 text-black/70">
+                    class="max-w-sm text-sm leading-7 text-black/70">
                   </p>
                 </div>
 
