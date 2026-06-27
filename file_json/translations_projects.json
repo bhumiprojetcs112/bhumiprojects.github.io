@@ -18,7 +18,8 @@
           "question.text": "Let's bring your architectural vision to life with our professional team. Consult your project needs now.",
           "question.button": "Contact Us",
           "footer.description": "We are a trusted and leading architectural design consulting firm, delivering innovative and high-quality solutions.",
-          "footer.office" : "OFFICE",
+          "footer.office1" : "OFFICE 1",
+          "footer.office2" : "OFFICE 2",
           "footer.contact" : "CONTACT",
           "footer.sosmed" : "SOCIAL MEDIA"
         },
@@ -41,7 +42,8 @@
           "question.text": "Mari wujudkan visi arsitektur Anda bersama tim profesional kami. Konsultasikan kebutuhan proyek Anda sekarang.",
           "question.button": "Hubungi Kami",
           "footer.description": "Kami adalah firma konsultan desain arsitektur terpercaya dan terdepan, memberikan solusi inovatif dan berkualitas tinggi.",
-          "footer.office" : "KANTOR",
+          "footer.office1" : "KANTOR 1",
+          "footer.office2" : "KANTOR 2",
           "footer.contact" : "KONTAK",
           "footer.sosmed" : "Media Sosial"
         }

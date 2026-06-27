@@ -80,7 +80,8 @@
           "plan.tittle9": "Color Printout",
           "plan.text9": "Exclusive A3 color printout to complement your planning documents.",
           "footer.description": "We are a trusted and leading architectural design consulting firm, delivering innovative and high-quality solutions.",
-          "footer.office" : "OFFICE",
+          "footer.office1" : "OFFICE 1",
+          "footer.office2" : "OFFICE 2",
           "footer.contact" : "CONTACT",
           "footer.sosmed" : "SOCIAL MEDIA"
         },
@@ -165,7 +166,8 @@
           "plan.tittle9": "Hasil Cetak Berwarna",
           "plan.text9": "Print out A3 berwarna eksklusif sebagai pelengkap dokumen perencanaan Anda.",
           "footer.description": "Kami adalah firma konsultan desain arsitektur terpercaya dan terdepan, memberikan solusi inovatif dan berkualitas tinggi.",
-          "footer.office" : "KANTOR",
+          "footer.office1" : "KANTOR 1",
+          "footer.office2" : "KANTOR 2",
           "footer.contact" : "KONTAK",
           "footer.sosmed" : "Media Sosial"
         }
