@@ -1158,34 +1158,9 @@
                <div class="flex flex-col justify-center">
                  <h1 data-i18n="profile.information" class="text-3xl md:text-5xl font-bold mb-4 text-center text-white">
               </h1>
-              <p data-i18n="profile.descriptions"  class="mt-2 lg:mt-3 text-white text-xs md:text-sm lg:text-base xl:text-lg leading-tight text-center" style="padding-top: 5%;">
+              <p data-i18n="profile.descriptions"  class="mt-3 md:mt-4 text-sm xs:text-base md:text-base leading-relaxed" style="padding-top: 5%; text-align: justify;">
               </p>
-              <div class="mt-10 md:mt-12 grid grid-cols-3 gap-4 md:gap-10 text-center">
-                <div>
-                  <h3 data-i18n="profile.projectCompletednumber" class="text-white text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-none">
-                    +45
-                  </h3>
-                  <p data-i18n="profile.projectCompleted" class="mt-2 lg:mt-3 text-white text-xs md:text-sm lg:text-base xl:text-lg leading-tight">
-                    Project Completed
-                  </p>
-                </div>
-                <div>
-                  <h3 data-i18n="profile.yoenumber" class="text-white text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-none">
-                    +6
-                  </h3>
-                  <p data-i18n="profile.yoe" class="mt-2 lg:mt-3 text-white text-xs md:text-sm lg:text-base xl:text-lg leading-tight">
-                    Year of Experience
-                  </p>
-                </div>
-                <div>
-                  <h3 data-i18n="profile.citynumber" class="text-white text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-none">
-                    +11
-                  </h3>
-                  <p data-i18n="profile.city" class="mt-2 lg:mt-3 text-white text-xs md:text-sm lg:text-base xl:text-lg leading-tight">
-                    City
-                  </p>
-                </div>
-              </div>
+              
             </div>
                 <!-- <a
                   href="https://wa.me/6282142824797"
@@ -1547,6 +1522,9 @@
                   element.innerHTML = value;
               } 
               else if (key === "hero.title4") {
+                  element.innerHTML = value;
+              } 
+              else if (key === "profile.descriptions") {
                   element.innerHTML = value;
               } 
               else {
