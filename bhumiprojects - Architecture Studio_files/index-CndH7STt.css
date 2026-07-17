@@ -2953,7 +2953,7 @@
         }
 
         .sm\:h-\[80vh\] {
-            height: 80vh
+            height: 560px;
         }
 
         .sm\:w-14 {
