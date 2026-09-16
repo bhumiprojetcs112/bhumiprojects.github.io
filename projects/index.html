@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -740,7 +740,8 @@
       href="../bhumiprojects - Architecture Studio_files/logo.jpeg"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bhumi Projects - Jasa Arsitektur Berpengalaman dan Terpercaya</title>
+    <title>Proyek Arsitektur dan Interior | Portfolio Bhumi Projects</title>
+    <link rel="canonical" href="https://bhumiprojects.com/projects/" />
 
     <link href="./style/css2" rel="stylesheet" />
     <link
@@ -772,7 +773,7 @@
     />
     <meta
       property="og:url"
-      content="https://bhumiprojects.com//projects"
+      content="https://bhumiprojects.com/projects/"
       data-rh="true"
     />
     <meta
@@ -782,18 +783,23 @@
     />
     <meta
       property="og:image"
-      content="https://bhumiprojects - Architecture Studio_files/project-2.png"
+      content="https://bhumiprojects.com/projects/style/Projects.png"
       data-rh="true"
     />
     <meta name="twitter:card" content="summary_large_image" data-rh="true" />
     <meta
       name="twitter:title"
-      content="Projects | Bhumi Projects - Jasa Arsitektur Berpengalaman dan Terpercaya"
+      content="Proyek Arsitektur dan Interior | Portfolio Bhumi Projects"
       data-rh="true"
     />
     <meta
       name="twitter:description"
       content="Explore our portfolio of architectural projects."
+      data-rh="true"
+    />
+    <meta
+      name="twitter:image"
+      content="https://bhumiprojects.com/projects/style/Projects.png"
       data-rh="true"
     />
   </head>
@@ -1504,6 +1510,8 @@
 
       function setLanguage(lang) {
       if (!translations || !translations[lang]) return;
+
+      document.documentElement.lang = lang;
 
       const entries = translations[lang];
 

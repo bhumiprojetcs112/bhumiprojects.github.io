@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -739,7 +739,8 @@
       href="../bhumiprojects - Architecture Studio_files/logo.jpeg"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bhumi Projects - Jasa Arsitektur Berpengalaman dan Terpercaya</title>
+    <title>Tentang Bhumi Projects | Studio Arsitektur Indonesia</title>
+    <link rel="canonical" href="https://bhumiprojects.com/about/" />
 
     <link href="./style/css2.css" rel="stylesheet" />
     
@@ -768,7 +769,7 @@
     />
     <meta
       property="og:url"
-      content="https://bhumiprojects.com//about"
+      content="https://bhumiprojects.com/about/"
       data-rh="true"
     />
     <meta property="og:site_name" content="Bhumi Projects And Associates" data-rh="true" />
@@ -779,7 +780,7 @@
     />
     <meta
       property="og:image"
-      content="https://bhumiprojects.com/about/"
+      content="https://bhumiprojects.com/about/style/Tentang.png"
       data-rh="true"
     />
     <meta property="og:image:width" content="1536" data-rh="true" />
@@ -798,7 +799,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://bhumiprojects.com/about/about-page.png"
+      content="https://bhumiprojects.com/about/style/Tentang.png"
       data-rh="true"
     />
     <style>
@@ -1489,6 +1490,8 @@
 
       function setLanguage(lang) {
       if (!translations || !translations[lang]) return;
+
+      document.documentElement.lang = lang;
 
       const entries = translations[lang];
 

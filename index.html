@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -739,7 +739,8 @@
       type="image/svg+xml"
       href="./bhumiprojects - Architecture Studio_files/logo.jpeg"
     />
-    <title>Bhumi Projects - Jasa Arsitektur Berpengalaman dan Terpercaya</title>
+    <title>Bhumi Projects | Konsultan Arsitektur dan Desain Interior</title>
+    <link rel="canonical" href="https://bhumiprojects.com/" />
 
     <link
       href="./bhumiprojects - Architecture Studio_files/css2"
@@ -790,7 +791,7 @@
     />
     <meta
       property="og:image"
-      content="./bhumiprojects - Architecture Studio_files/"
+      content="https://bhumiprojects.com/bhumiprojects%20-%20Architecture%20Studio_files/home_banner.png"
       data-rh="true"
     />
     <meta property="og:image:width" content="1024" data-rh="true" />
@@ -809,9 +810,21 @@
     />
     <meta
       name="twitter:image"
-      content="../bhumiprojects - Architecture Studio_files/"
+      content="https://bhumiprojects.com/bhumiprojects%20-%20Architecture%20Studio_files/home_banner.png"
       data-rh="true"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Bhumi Projects",
+        "url": "https://bhumiprojects.com/",
+        "logo": "https://bhumiprojects.com/bhumiprojects%20-%20Architecture%20Studio_files/logo-1.png",
+        "description": "Konsultan arsitektur dan desain interior untuk hunian, komersial, dan ruang publik di Indonesia.",
+        "areaServed": "Indonesia",
+        "sameAs": ["https://www.instagram.com/bhumiprojects", "https://www.tiktok.com/@bhumi.projects", "https://youtube.com/@bhumiprojects"]
+      }
+    </script>
   </head>
   <body data-new-gr-c-s-check-loaded="14.1304.0" data-gr-ext-installed="">
     <div id="root">
@@ -1736,6 +1749,8 @@
 
       function setLanguage(lang) {
       if (!translations || !translations[lang]) return;
+
+      document.documentElement.lang = lang;
 
       const entries = translations[lang];
 
