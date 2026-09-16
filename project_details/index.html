@@ -1054,22 +1054,15 @@
               <p
                 id="projectDescription"
                 class="text-xs xs:text-sm md:text-base text-gray-600 leading-relaxed mb-6 xs:mb-8"
+                style="white-space: pre-line"
               >
-                Landscape Bendungan Cipanas dirancang sebagai ruang publik yang
-                menghubungkan infrastruktur, alam, dan pengalaman manusia dalam
-                satu kesatuan kawasan yang harmonis. Mengusung pendekatan
-                lanskap tropis modern, proyek ini menghadirkan area terbuka yang
-                nyaman, sirkulasi pedestrian yang terintegrasi, serta ruang
-                interaksi yang menyatu dengan panorama bendungan dan kontur alam
-                sekitarnya. Penataan vegetasi, elemen hardscape, dan area
-                rekreasi dirancang untuk menciptakan suasana yang tenang
-                sekaligus aktif bagi pengunjung. Proyek ini tidak hanya
-                memperkuat fungsi kawasan bendungan sebagai infrastruktur
-                strategis, tetapi juga menghadirkan nilai sosial, ekologis, dan
-                visual bagi lingkungan sekitarnya. Sebuah ruang lanskap yang
-                menghadirkan keseimbangan antara utilitas, rekreasi, dan
-                keindahan alam.
               </p>
+              <div
+                id="projectHashtags"
+                class="flex flex-wrap gap-2"
+                style="padding: 0% 2% 2% 2%"
+              >
+                </div>
               <div class="mb-8 xs:mb-12">
                 <h2 data-i18n="img.gallerytitle"
                   class="text-lg xs:text-xl md:text-2xl font-bold text-gray-900 mb-4 xs:mb-6"
@@ -1088,7 +1081,13 @@
                     <div
                       class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
                     >
-                      <!-- <span class="text-white font-medium">View Full Size</span> -->
+                      <button
+                        type="button"
+                        data-i18n="gallery.viewDetails"
+                        class="gallery-view-details cursor-pointer px-4 py-2 text-sm font-semibold text-white border border-white rounded-full hover:bg-white hover:text-black active:scale-95 focus:outline-none focus:ring-2 focus:ring-white transition-all"
+                      >
+                        View Details
+                      </button>
                     </div>
                   </div>
                   <div
@@ -1102,7 +1101,13 @@
                     <div
                       class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
                     >
-                      <!-- <span class="text-white font-medium">View Full Size</span> -->
+                      <button
+                        type="button"
+                        data-i18n="gallery.viewDetails"
+                        class="gallery-view-details cursor-pointer px-4 py-2 text-sm font-semibold text-white border border-white rounded-full hover:bg-white hover:text-black active:scale-95 focus:outline-none focus:ring-2 focus:ring-white transition-all"
+                      >
+                        View Details
+                      </button>
                     </div>
                   </div>
                   <div
@@ -1116,7 +1121,13 @@
                     <div
                       class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
                     >
-                      <!-- <span class="text-white font-medium">View Full Size</span> -->
+                      <button
+                        type="button"
+                        data-i18n="gallery.viewDetails"
+                        class="gallery-view-details cursor-pointer px-4 py-2 text-sm font-semibold text-white border border-white rounded-full hover:bg-white hover:text-black active:scale-95 focus:outline-none focus:ring-2 focus:ring-white transition-all"
+                      >
+                        View Details
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1193,6 +1204,38 @@
                       class="text-xs xs:text-sm md:text-base font-medium text-gray-900"
                     >
                     </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3 xs:gap-4">
+                  <div
+                    class="w-8 h-8 xs:w-10 xs:h-10 bg-primary/10 flex items-center justify-center flex-shrink-0"
+                  >
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 448 512"
+                      class="text-primary text-xs xs:text-sm"
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M224 32c-35.3 0-64 28.7-64 64v32h-32c-35.3 0-64 28.7-64 64v256h320V192c0-35.3-28.7-64-64-64h-32V96c0-35.3-28.7-64-64-64zm0 64c17.7 0 32 14.3 32 32v32h-64v-32c0-17.7 14.3-32 32-32z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p
+                      data-i18n="info.builtArea"
+                      class="text-[10px] xs:text-xs text-gray-500"
+                    >
+                      Luas Bangun
+                    </p>
+                    <p
+                      id="projectBuiltArea"
+                      class="text-xs xs:text-sm md:text-base font-medium text-gray-900"
+                    ></p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3 xs:gap-4">
@@ -1303,6 +1346,47 @@
             d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"
           ></path>
         </svg> </button>
+      <div
+        id="galleryModal"
+        class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 p-[20%]"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="galleryModalTitle"
+      >
+        <div
+          class="relative flex max-h-full w-full max-w-[30%] flex-col items-center gap-4 rounded-lg bg-white p-4 shadow-2xl"
+          style="max-width: 30vw; padding: 20px; background-color: #fff; border: 2px solid #d1d5db; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35)"
+        >
+          <button
+            id="galleryModalClose"
+            type="button"
+            class="absolute right-3 top-3 z-10 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-black text-2xl font-bold text-white shadow-xl hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black"
+            style="border: 2px solid #fff"
+            aria-label="Close image details"
+          >
+            <svg
+              aria-hidden="true"
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            >
+              <path d="M6 6l12 12"></path>
+              <path d="M18 6L6 18"></path>
+            </svg>
+          </button>
+          <img
+            id="galleryModalImage"
+            class="max-h-[60vh] w-auto max-w-[30%] object-contain"
+            style="max-width: 30vw; max-height: 60vh"
+            src=""
+            alt=""
+          />
+          <p id="galleryModalTitle" class="text-center text-sm font-medium text-black"></p>
+        </div>
+      </div>
       <footer class="text-black" style="background-color: #c9c3c3;">
             <!-- Main Footer -->
             <div class="container mx-auto px-4 xs:px-6 md:px-8 py-10 xs:py-12 md:py-16">
@@ -1501,9 +1585,15 @@
         const heroCategory = document.getElementById('projectHeroCategory');
         const heroStatus = document.getElementById('projectHeroStatus');
         const projectDescription = document.getElementById('projectDescription');
+        const projectHashtags = document.getElementById('projectHashtags');
         const projectGallery = document.getElementById('projectGallery');
+        const galleryModal = document.getElementById('galleryModal');
+        const galleryModalImage = document.getElementById('galleryModalImage');
+        const galleryModalTitle = document.getElementById('galleryModalTitle');
+        const galleryModalClose = document.getElementById('galleryModalClose');
         const projectLocation = document.getElementById('projectLocation');
         const projectArea = document.getElementById('projectArea');
+        const projectBuiltArea = document.getElementById('projectBuiltArea');
         const projectYear = document.getElementById('projectYear');
         const projectClient = document.getElementById('projectClient');
 
@@ -1532,7 +1622,13 @@
                     src="${normalizeImagePath(src)}"
                   />
                   <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <!-- <span class="text-white font-medium">View Full Size</span> -->
+                    <button
+                      type="button"
+                      data-i18n="gallery.viewDetails"
+                      class="gallery-view-details cursor-pointer px-4 py-2 text-sm font-semibold text-white border border-white rounded-full hover:bg-white hover:text-black active:scale-95 focus:outline-none focus:ring-2 focus:ring-white transition-all"
+                    >
+                      View Details
+                    </button>
                   </div>
                 </div>
               `
@@ -1544,15 +1640,69 @@
           if (el) el.textContent = value || '';
         };
 
+        const closeGalleryModal = () => {
+          if (!galleryModal) return;
+          galleryModal.classList.add('hidden');
+          galleryModal.classList.remove('flex');
+          document.body.classList.remove('overflow-hidden');
+          if (galleryModalImage) galleryModalImage.src = '';
+        };
+
+        const openGalleryModal = image => {
+          if (!galleryModal || !galleryModalImage || !image) return;
+          galleryModalImage.src = image.src;
+          galleryModalImage.alt = image.alt;
+          if (galleryModalTitle) galleryModalTitle.textContent = image.alt;
+          galleryModal.classList.remove('hidden');
+          galleryModal.classList.add('flex');
+          document.body.classList.add('overflow-hidden');
+          galleryModalClose?.focus();
+        };
+
+        projectGallery?.addEventListener('click', event => {
+          const viewButton = event.target.closest('.gallery-view-details');
+          if (!viewButton) return;
+          const image = viewButton.closest('.group')?.querySelector('img');
+          openGalleryModal(image);
+        });
+
+        galleryModalClose?.addEventListener('click', closeGalleryModal);
+        galleryModal?.addEventListener('click', event => {
+          if (event.target === galleryModal) closeGalleryModal();
+        });
+        document.addEventListener('keydown', event => {
+          if (event.key === 'Escape') closeGalleryModal();
+        });
+
+        const renderHashtags = hashtags => {
+          if (!projectHashtags) return;
+
+          projectHashtags.replaceChildren();
+          projectHashtags.style.display = 'none';
+
+          if (!Array.isArray(hashtags) || hashtags.length === 0) return;
+
+          hashtags.forEach(hashtag => {
+            const tag = document.createElement('span');
+            tag.className = 'px-3 py-1 text-sm md:text-base font-normal text-gray-600 bg-gray-100 rounded-full';
+            tag.textContent = `#${String(hashtag).replace(/^#/, '')}`;
+            projectHashtags.appendChild(tag);
+          });
+
+          projectHashtags.style.display = 'flex';
+        };
+
         const renderProject = project => {
           if (!project) {
             setText(projectTitle, 'Proyek tidak ditemukan');
             setText(breadcrumbTitle, 'Proyek tidak ditemukan');
             if (heroImage) heroImage.src = './style/1779168933964-cipanas.png';
             setText(projectDescription, 'Data proyek tidak tersedia. Silakan kembali ke halaman daftar proyek.');
+            renderHashtags([]);
             if (projectGallery) projectGallery.innerHTML = '<div class="text-gray-500">Tidak ada galeri tersedia.</div>';
             setText(projectLocation, '-');
             setText(projectArea, '-');
+            setText(projectBuiltArea, '-');
             setText(projectYear, '-');
             setText(projectClient, '-');
             document.title = 'Proyek tidak ditemukan';
@@ -1563,9 +1713,13 @@
           setText(breadcrumbTitle, project.title);
           setText(heroCategory, project.category || '');
           setText(heroStatus, project.status || '');
-          setText(projectDescription, project.description || '');
+          if (projectDescription) {
+            projectDescription.innerHTML = project.description || '';
+          }
+          renderHashtags(project.hashtags);
           setText(projectLocation, project.location || '');
           setText(projectArea, project.luas_area || '');
+          setText(projectBuiltArea, project.luas_bangun || '-');
           setText(projectYear, project.tahun || '');
           setText(projectClient, project.client || '');
 
@@ -1662,6 +1816,8 @@
 
           if (value !== undefined) {
               if (key === "hero.title") {
+                  element.innerHTML = value;
+              } else if (key === "projectDescription") {
                   element.innerHTML = value;
               } else {
                   element.textContent = value;

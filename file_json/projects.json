@@ -1,54 +1,81 @@
 [
   {
-    "id": "A7K9X2",
-    "slug": "landscape-bendungan-cipanas-wika-jakon",
-    "title": "Landscape Bendungan Cipanas, Wika-Jakon",
-    "image": "../project_details/style/ANS House/Salinan 34.jpg",
-    "category": "Landscape Architecture",
-    "location": "Bendungan Cipanas",
-    "luas_area": "5.600 m²",
-    "tahun": "2024",
-    "client": "Wika-Jakon",
-    "description": "Landscape Bendungan Cipanas dirancang sebagai ruang publik yang menghubungkan infrastruktur, alam, dan pengalaman manusia dalam satu kesatuan kawasan yang harmonis. Mengusung pendekatan lanskap tropis modern, proyek ini menghadirkan area terbuka yang nyaman, sirkulasi pedestrian yang terintegrasi, serta ruang interaksi yang menyatu dengan panorama bendungan dan kontur alam sekitarnya. Penataan vegetasi, elemen hardscape, dan area rekreasi dirancang untuk menciptakan suasana yang tenang sekaligus aktif bagi pengunjung.",
-    "status": "Selesai",
-    "gallery": [
-      "../project_details/style/1779168933964-cipanas.png",
-      "../project_details/style/1779168933964-cipanas.png",
-      "../project_details/style/1779168945875-cipanas.png"
-    ]
-  },
+  "id": "8f3c7a21-d94b-6e0a-5c2f-8d71a4b90001",
+  "slug": "hunian-open-plan-surabaya",
+  "title": "Hunian Open Plan, Surabaya",
+  "image": "../project_details/style/Luxury/luxury-1.jpg",
+  "category": "Residential Architecture",
+  "location": "Surabaya, Jawa Timur",
+  "luas_area": "280 m²",
+  "luas_bangun": "240 m²",
+  "tahun": "2026",
+  "client": "archihub.id",
+  "description": "Hunian di Surabaya umumnya berhadapan dengan suhu tinggi, radiasi matahari kuat, dan kebutuhan ruang yang terus berkembang. Banyak rumah mengandalkan pendingin buatan karena bukaan tidak terkontrol dan tata ruang terlalu terfragmentasi. Akibatnya, konsumsi energi meningkat dan kualitas ruang dalam tidak stabil.\n\nPendekatan open plan dipilih untuk menyederhanakan sirkulasi udara dan memaksimalkan distribusi cahaya alami. Ruang-ruang utama digabung dalam satu konfigurasi lapang agar aliran udara tidak terhambat sekat masif. Konsekuensinya, kontrol terhadap privasi menjadi terbatas dan perlu diatasi dengan zoning non-fisik seperti perbedaan level atau elemen semi-transparan.\n\nMaterial ditentukan berdasarkan performa terhadap iklim dan perawatan. Batu alam digunakan pada area tertentu untuk meredam panas dan memberi ketahanan terhadap cuaca, sementara cat menjaga efisiensi biaya dan kemudahan perbaikan. Marmer diaplikasikan secara selektif pada interior untuk kualitas permukaan dan durabilitas, dengan konsekuensi biaya awal lebih tinggi dan kebutuhan perawatan berkala.\n\nContact for Inquiries & Collaboration:\nWhatsapp +62823 3666 2027\nCall +62823 3666 2027\nEmail: projectsbhumi@gmail.com",
+  "status": "Selesai",
+  "article": "Hunian di Surabaya umumnya berhadapan dengan suhu tinggi, radiasi matahari kuat, dan kebutuhan ruang yang terus berkembang. Banyak rumah mengandalkan pendingin buatan karena bukaan tidak terkontrol dan tata ruang terlalu terfragmentasi. Akibatnya, konsumsi energi meningkat dan kualitas ruang dalam tidak stabil.\n\nPendekatan open plan dipilih untuk menyederhanakan sirkulasi udara dan memaksimalkan distribusi cahaya alami. Ruang-ruang utama digabung dalam satu konfigurasi lapang agar aliran udara tidak terhambat sekat masif. Konsekuensinya, kontrol terhadap privasi menjadi terbatas dan perlu diatasi dengan zoning non-fisik seperti perbedaan level atau elemen semi-transparan.\n\nMaterial ditentukan berdasarkan performa terhadap iklim dan perawatan. Batu alam digunakan pada area tertentu untuk meredam panas dan memberi ketahanan terhadap cuaca, sementara cat menjaga efisiensi biaya dan kemudahan perbaikan. Marmer diaplikasikan secara selektif pada interior untuk kualitas permukaan dan durabilitas, dengan konsekuensi biaya awal lebih tinggi dan kebutuhan perawatan berkala.\n\nProject Location\nSurabaya, Jawa Timur\n\nProject Year\n2026\n\nContact for Inquiries & Collaboration:\nWhatsapp: +62823 3666 2027\nCall: +62823 3666 2027\nEmail: projectsbhumi@gmail.com",
+  "hashtags": [
+    "luxury",
+    "moderncontemporary",
+    "openplan",
+    "arsitekindonesia",
+    "arsitekblitar"
+  ],
+  "gallery": [
+    "../project_details/style/Luxury/luxury-1.jpg",
+    "../project_details/style/Luxury/luxury-2.jpg",
+    "../project_details/style/Luxury/luxury-3.jpg"
+  ]
+},
   {
-    "id": "A7K9X234",
-    "slug": "interior-bendungan-cipanas-wika-jakon",
-    "title": "Interior Bendungan Cipanas, Wika-Jakon",
-    "image": "../project_details/style/1779168940920-cipanas_02.png",
-    "category": "Interior Design",
-    "location": "Bendungan Cipanas",
-    "luas_area": "5.600 m²",
-    "tahun": "2023",
-    "client": "Wika-Jakon",
-    "description": "Landscape Bendungan Cipanas dirancang sebagai ruang publik yang menghubungkan infrastruktur, alam, dan pengalaman manusia dalam satu kesatuan kawasan yang harmonis. Mengusung pendekatan lanskap tropis modern, proyek ini menghadirkan area terbuka yang nyaman, sirkulasi pedestrian yang terintegrasi, serta ruang interaksi yang menyatu dengan panorama bendungan dan kontur alam sekitarnya. Penataan vegetasi, elemen hardscape, dan area rekreasi dirancang untuk menciptakan suasana yang tenang sekaligus aktif bagi pengunjung.",
-    "status": "Selesai",
-    "gallery": [
-      "../project_details/style/1779168940920-cipanas_02.png",
-      "../project_details/style/1779168940920-cipanas_02.png"
-    ]
-  },
+  "id": "8f3c7a21-d94b-6e0a-5c2f-8d71a4b90002",
+  "slug": "ans-house",
+  "title": "ANS House",
+  "image": "../project_details/style/ANS House/ans-1.jpg",
+  "category": "Residential Architecture",
+  "location": "Sekardangan, Kab. Blitar, Jawa Timur",
+  "luas_area": "275 m²",
+  "luas_bangun": "125 m²",
+  "tahun": "2026",
+  "client": "Ibu Anis",
+  "description": "Proyek ini dimulai dari dua kondisi yang sudah terdefinisi sebelum preliminary design: tapak memanjang berorientasi barat, dan sejumlah aturan tradisi Jawa yang mengikat tata letak ruang, posisi pintu, serta menjadi bekas runtuhan bangunan lama.\n\nKeduanya membentuk batas kerja yang cukup ketat. Respons terhadap panas sore hari diselesaikan melalui meminimalisir bukaan mengarah barat. Ketinggian atap pelana ditujukan mendorong udara panas bergerak ke atas. Tata letak ruang dalam kami rancang open plan yang disesuaikan oleh pakem yang dibawa klien.\n\nTugas kami di sini lebih pada menemukan cara agar beberapa sistem, yaitu iklim, estetika dan tradisi, bisa menemukan titik optimalnya.\n\nContact for Inquiries & Collaboration:\nWhatsapp +6282336662027\nCall +6282336662027\nEmail: projectsbhumi@gmail.com",
+  "status": "Selesai",
+  "hashtags": [
+    "designwithcontext",
+    "responsive",
+    "quietluxury",
+    "arsitekblitar",
+    "arsitekturindonesia"
+  ],
+  "gallery": [
+    "../project_details/style/ANS House/ans-1.jpg",
+    "../project_details/style/ANS House/ans-2.jpg",
+    "../project_details/style/ANS House/ans-3.jpg"
+  ]
+},
   {
-    "id": "A7K9X289",
-    "slug": "landscape-bendungan-cipanas-wika-jakon",
-    "title": "Landscape Bendungan Cipanas, Wika-Jakon",
-    "image": "../project_details/style/1779168945875-cipanas.png",
-    "category": "Landscape Architecture",
-    "location": "Bendungan sutami",
-    "luas_area": "5.600 m²",
+    "id": "4b7e2c91-a63f-7d08-3e5b-9c42f1a80003",
+    "slug": "tw-house",
+    "title": "TW House",
+    "image": "../project_details/style/TWS House/tws-1.jpg",
+    "category": "Residential Architecture",
+    "location": "Blitar, Jawa Timur",
+    "luas_area": "72 m²",
+    "luas_bangun": "86 m²",
     "tahun": "2024",
-    "client": "Wika-Jakon",
-    "description": "Landscape Bendungan Cipanas dirancang sebagai ruang publik yang menghubungkan infrastruktur, alam, dan pengalaman manusia dalam satu kesatuan kawasan yang harmonis. Mengusung pendekatan lanskap tropis modern, proyek ini menghadirkan area terbuka yang nyaman, sirkulasi pedestrian yang terintegrasi, serta ruang interaksi yang menyatu dengan panorama bendungan dan kontur alam sekitarnya. Penataan vegetasi, elemen hardscape, dan area rekreasi dirancang untuk menciptakan suasana yang tenang sekaligus aktif bagi pengunjung.",
+    "client": "Pak Trio",
+    "description": "Hunian di kota kecil seperti Blitar tetap menghadapi tekanan efisiensi lahan, terutama ketika berdampingan langsung dengan fungsi non-hunian. Dalam kasus ini, sisi kanan direncanakan akan dibangun gudang alat pesta milik owner yang berpotensi menimbulkan kebisingan dan gangguan visual. Tanpa respons desain, kualitas ruang tinggal akan terdampak langsung.\n\nKonsep rumah compact dipilih untuk mengoptimalkan setiap meter persegi tanpa menambah luas bangunan. Ruang disusun seefisien mungkin dengan meminimalkan area sirkulasi yang tidak produktif, serta mengarahkan bukaan utama menjauh dari sisi gudang. Konsekuensinya, fleksibilitas tata ruang menjadi terbatas dan tidak semua ruang mendapatkan orientasi ideal.\n\nMaterial cat digunakan sebagai dominan karena pertimbangan biaya, kemudahan aplikasi, dan perawatan jangka panjang. Dengan keterbatasan material, kontrol kualitas ruang dialihkan ke proporsi bukaan, pencahayaan alami, dan ventilasi silang. Pendekatan ini membatasi ekspresi material, namun menjaga bangunan tetap rasional terhadap konteks dan penggunaan.\n\nContact for Inquiries & Collaboration:\nWhatsapp +6282336662027\nCall +6282336662027\nEmail: projectsbhumi@gmail.com",
     "status": "Selesai",
+    "hashtags": [
+      "compact",
+      "minimalism",
+      "functionaldesign",
+      "arsitekindonesia",
+      "arsitekblitar"
+    ],
     "gallery": [
-      "../project_details/style/1779168945875-cipanas.png",
-      "../project_details/style/1779168933964-cipanas.png"
+      "../project_details/style/TWS House/tws-1.jpg",
+      "../project_details/style/TWS House/tws-2.jpg",
+      "../project_details/style/TWS House/tws-3.jpg"
     ]
   }
 ]
