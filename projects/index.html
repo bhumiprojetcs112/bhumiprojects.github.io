@@ -1002,20 +1002,12 @@
             kolaborasi kami dengan klien.
           </p>
         </div>
-        <div class="flex flex-wrap justify-center gap-3 mb-12">
+        <div id="projectFilters" class="flex flex-wrap justify-center gap-3 mb-12">
           <button data-i18n="history.all"
             class="filter-btn px-6 py-3 bg-black font-medium transition-all duration-300 text-white shadow-lg cursor-pointer"
             data-category="All">
-            Semua Proyek</button
-          ><button
-               class="filter-btn px-6 py-3 font-medium transition-all duration-300 bg-white text-gray-700 hover:bg-primary-two hover:text-white border border-gray-200 cursor-pointer"
-            data-category="Landscape Architecture">
-            Landscape Architecture</button
-          ><button
-            class="filter-btn px-6 py-3 font-medium transition-all duration-300 bg-white text-gray-700 hover:bg-primary-two hover:text-white border border-gray-200 cursor-pointer"
-            data-category="Interior Design">
-            Interior Design</button
-          >
+            Semua Proyek
+          </button>
         </div>
         <div class="text-center mb-6 xs:mb-8">
           <span data-i18n="history.display"
@@ -1031,6 +1023,7 @@
         </div>
         <script>
           const grid = document.getElementById('project-grid');
+          const projectFilters = document.getElementById('projectFilters');
 
           let allProjects = [];
 
@@ -1108,6 +1101,31 @@
                   projects.length;
           }
 
+                function renderProjectFilters(projects) {
+                  if (!projectFilters) return;
+
+                  const categories = [...new Set(
+                    projects
+                      .map(project => project.category)
+                      .filter(Boolean)
+                  )];
+
+                  projectFilters.innerHTML = `
+                    <button data-i18n="history.all"
+                      class="filter-btn px-6 py-3 bg-black font-medium transition-all duration-300 text-white shadow-lg cursor-pointer"
+                      data-category="All">
+                      Semua Proyek
+                    </button>
+                    ${categories.map(category => `
+                      <button
+                        class="filter-btn px-6 py-3 font-medium transition-all duration-300 bg-white text-gray-700 hover:bg-primary-two hover:text-white border border-gray-200 cursor-pointer"
+                        data-category="${escapeHtml(category)}">
+                        ${escapeHtml(category)}
+                      </button>
+                    `).join('')}
+                  `;
+                }
+
           async function loadProjects() {
               try {
                   const response =
@@ -1118,6 +1136,7 @@
 
                   allProjects = await response.json();
 
+                  renderProjectFilters(allProjects);
                   renderProjects(allProjects);
 
               } catch (error) {
@@ -1132,11 +1151,10 @@
 
           loadProjects();
 
-          // FILTER
-          document.querySelectorAll(".filter-btn")
-              .forEach(button => {
-
-                  button.addEventListener("click", function () {
+            // FILTER
+            projectFilters?.addEventListener("click", function (event) {
+                const button = event.target.closest(".filter-btn");
+                if (!button) return;
 
                       document.querySelectorAll(".filter-btn")
                           .forEach(btn => {
@@ -1154,20 +1172,20 @@
                               );
                           });
 
-                      this.classList.remove(
+                      button.classList.remove(
                           "bg-white",
                           "text-gray-700",
                           "border",
                           "border-gray-200"
                       );
 
-                      this.classList.add(
+                      button.classList.add(
                           "bg-primary-one",
                           "text-white",
                           "shadow-lg"
                       );
 
-                      const category = this.dataset.category;
+                      const category = button.dataset.category;
 
                       const filteredProjects =
                           category === "All"
@@ -1178,7 +1196,6 @@
 
                       renderProjects(filteredProjects);
                   });
-          });
         </script>
        
         <div
